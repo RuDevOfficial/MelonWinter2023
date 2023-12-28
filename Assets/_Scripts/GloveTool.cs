@@ -2,11 +2,6 @@
 using UnityEditor.EditorTools;
 using UnityEngine;
 
-public class ScissorsTool : Tool
-{
-
-}
-
 public class GloveTool: Tool
 {
     PickableObject currentObject;
@@ -14,57 +9,26 @@ public class GloveTool: Tool
     private void Start()
     {
         pickUpRadius = GameManager.Get().GameData.PickUpRadius;
+        type = ToolsManager.ToolType.Glove;
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            TryPickUp();
-        }
-
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            TryDrop();
-        }
-    }
-
-    private void TryDrop()
-    {
-        if (CanDrop())
-        {
-            Drop();
-        }
-    }
-
-    private void Drop()
+    protected override void DoReleaseAction()
     {
         currentObject.Dropped();
         currentObject = null;
     }
 
-    private bool CanDrop()
+    protected override bool CanDoReleaseAction()
     {
         return currentObject != null;
     }
 
-    private void TryPickUp()
+    protected override void DoPressAction()
     {
-        if (CanPickUp(out PickableObject obj))
-        {
-            PickUp(obj);
-        }
-    }
-
-    private void PickUp(PickableObject obj)
-    {
-        currentObject = obj;
         currentObject.Picked();
     }
 
-    private bool CanPickUp(out PickableObject obj)
+    protected override bool CanDoPressAction()
     {
-        obj = null;
-
         float minDistance = pickUpRadius;
 
         foreach (PickableObject pickable in GameManager.Get().PickableObjectsList)
@@ -76,11 +40,11 @@ public class GloveTool: Tool
             if (distance <= pickUpRadius && distance < minDistance)
             {
                 minDistance = distance;
-                obj = pickable;
+                currentObject = pickable;
             }
         }
 
-        return obj != null;
+        return currentObject != null;
     }
 
     private void OnDrawGizmos()

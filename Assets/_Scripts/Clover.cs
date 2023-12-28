@@ -45,11 +45,6 @@ public class Clover : MonoBehaviour
                 timer = growthThresholdTime;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.E)) // Esto se borra luego
-        {
-            TryCut();
-        }
     }
 
     private bool IsGrowing()

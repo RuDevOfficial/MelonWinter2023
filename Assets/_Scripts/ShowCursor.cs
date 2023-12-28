@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,19 @@ public class ShowCursor : MonoBehaviour
 
     void Start()
     {
+        ToolsManager.OnToolsSwapped += OnToolsSwapped;
         Vector2 cursorHotSpot = new Vector2(gloveCursorTexture.width / 2, gloveCursorTexture.height / 2);
         Cursor.SetCursor(gloveCursorTexture, cursorHotSpot, CursorMode.ForceSoftware);
     }
 
-    void Update()
+    private void OnToolsSwapped(ToolsManager.ToolType type)
     {
-        
+        Texture2D texture;
+
+        if (type == ToolsManager.ToolType.Scissors) texture = scissorsCursorTexture;
+        else texture = gloveCursorTexture;
+
+        Vector2 cursorHotSpot = new Vector2(texture.width / 2, texture.height / 2);
+        Cursor.SetCursor(texture, cursorHotSpot, CursorMode.ForceSoftware);
     }
 }
