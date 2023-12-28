@@ -9,4 +9,7 @@ public class GameData: ScriptableObject
 
     [Header("Drag Data")]
     public float PickUpRadius;
+
+    [Header("Pot Data")]
+    public float PotDetectionRadius;
 }

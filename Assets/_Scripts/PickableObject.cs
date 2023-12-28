@@ -14,7 +14,7 @@ public abstract class PickableObject : MonoBehaviour
     }
     private void Start()
     {
-        GameManager.GetGameManager().AddPickable(this);
+        GameManager.Get().AddPickable(this);
     }
 
     public void Picked()
@@ -22,7 +22,8 @@ public abstract class PickableObject : MonoBehaviour
         isPickedUp = true;
         rb.simulated = false;
     }
-    public void Dropped()
+
+    public virtual void Dropped()
     {
         isPickedUp = false;
         rb.simulated = true;
@@ -40,6 +41,6 @@ public abstract class PickableObject : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.GetGameManager().RemovePickable(this);
+        GameManager.Get().RemovePickable(this);
     }
 }

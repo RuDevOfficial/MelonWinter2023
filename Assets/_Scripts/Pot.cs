@@ -9,6 +9,15 @@ public class Pot : MonoBehaviour
 
     bool unlocked = true;
     bool empty = true;
+
+    private void Start()
+    {
+        if (unlocked == true)
+        {
+            GameManager.Get().AddPot(this);
+        }
+    }
+
     private void Awake()
     {
         clover = GetComponentInChildren<Clover>();
@@ -53,7 +62,7 @@ public class Pot : MonoBehaviour
         Debug.Log("Harvest!");
         clover.Cut();
     }
-    
+
     private bool CanHarvest()
     {
         return !empty && unlocked;
@@ -71,4 +80,12 @@ public class Pot : MonoBehaviour
     {
         return unlocked && empty;
     }
-} 
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying)
+        {
+            Gizmos.DrawWireSphere(transform.position, GameManager.Get().GameData.PotDetectionRadius);
+        }
+    }
+}

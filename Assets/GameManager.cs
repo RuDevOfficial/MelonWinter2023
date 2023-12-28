@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public List<PickableObject> PickableObjectsList= new();
 
+    public List<Pot> PotList = new();
+
     static GameManager instance;
 
 
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public static GameManager GetGameManager()
+    public static GameManager Get()
     {
         return instance;
     }
@@ -45,7 +47,6 @@ public class GameManager : MonoBehaviour
     {
         PickableObjectsList.Add(pickableObject);
     }
-
     public void RemovePickable(PickableObject pickableObject)
     {
         for (int i = PickableObjectsList.Count-1; i >= 0; i--)
@@ -55,5 +56,10 @@ public class GameManager : MonoBehaviour
                 PickableObjectsList.RemoveAt(i);
             }
         }
+    }
+
+    public void AddPot(Pot newPot)
+    {
+        PotList.Add(newPot);
     }
 }

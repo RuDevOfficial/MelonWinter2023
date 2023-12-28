@@ -24,8 +24,8 @@ public class Clover : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        growthThresholdTime = GameManager.GetGameManager().GameData.GrowthThreshold;
-        optimalGrowthStage = GameManager.GetGameManager().GameData.OptimalGrowthStage;
+        growthThresholdTime = GameManager.Get().GameData.GrowthThreshold;
+        optimalGrowthStage = GameManager.Get().GameData.OptimalGrowthStage;
     }
     
     void Start()

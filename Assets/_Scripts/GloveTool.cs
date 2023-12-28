@@ -7,7 +7,7 @@ public class GloveTool: MonoBehaviour
     float pickUpRadius;
     private void Start()
     {
-        pickUpRadius = GameManager.GetGameManager().GameData.PickUpRadius;
+        pickUpRadius = GameManager.Get().GameData.PickUpRadius;
     }
     private void Update()
     {
@@ -15,6 +15,7 @@ public class GloveTool: MonoBehaviour
         {
             TryPickUp();
         }
+
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             TryDrop();
@@ -60,7 +61,7 @@ public class GloveTool: MonoBehaviour
 
         float minDistance = pickUpRadius;
 
-        foreach (PickableObject pickable in GameManager.GetGameManager().PickableObjectsList)
+        foreach (PickableObject pickable in GameManager.Get().PickableObjectsList)
         {
             Vector2 pickablePos = pickable.transform.position;
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -79,6 +80,10 @@ public class GloveTool: MonoBehaviour
     private void OnDrawGizmos()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(currentObject != null) { Gizmos.color = Color.yellow; }
+        else { Gizmos.color = Color.green; }
+
         Gizmos.DrawWireSphere(mousePos, pickUpRadius);
     }
 }
