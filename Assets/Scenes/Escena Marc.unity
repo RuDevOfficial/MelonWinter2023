@@ -424,6 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 375215847}
+  - component: {fileID: 375215848}
   m_Layer: 0
   m_Name: ScissorsTool
   m_TagString: Untagged
@@ -446,6 +447,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 648098221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &375215848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375215846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4790305249e8943949baf62b532f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &430248279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0807139a4e66304aaa1592616737bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &977125845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,7 +1906,7 @@ GameObject:
   - component: {fileID: 1310715253}
   - component: {fileID: 1310715252}
   m_Layer: 5
-  m_Name: ScissorsButton
+  m_Name: ToogleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1960,7 +1975,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1310715253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648098222}
+        m_TargetAssemblyTypeName: ToolsManager, Assembly-CSharp
+        m_MethodName: SwapTool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1310715253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,50 +2026,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310715250}
   m_CullTransparentMesh: 1
---- !u!1 &1331529086
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1331529088}
-  - component: {fileID: 1331529087}
-  m_Layer: 0
-  m_Name: Glove
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1331529087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331529086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0807139a4e66304aaa1592616737bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1331529088
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331529086}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44608662, y: -2.0693996, z: -0.0062944037}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364465253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,7 +3582,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1618706377}
   - {fileID: 1944714909}
-  - {fileID: 1331529088}
   - {fileID: 1420664819}
   - {fileID: 648098221}
   - {fileID: 713900502}

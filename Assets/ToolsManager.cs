@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
@@ -9,17 +10,38 @@ public class ToolsManager : MonoBehaviour
     Tool currentTool;
 
     GloveTool gloveTool;
+    ScissorsTool scissorsTool;
 
+    public static Action<ToolType> OnToolsSwapped;
 
+    private void Awake()
+    {
+        gloveTool = GetComponentInChildren<GloveTool>();
+        scissorsTool = GetComponentInChildren<ScissorsTool>();
+    }
     private void Start()
     {
-        currentTool = gloveTool;
+        currentTool = scissorsTool;
+        SwapTool();
     }
 
-    void Update()
+
+    public void SwapTool()
     {
+        if (currentTool.type == ToolType.Scissors)
+        {
+            scissorsTool.gameObject.SetActive(false);
+            gloveTool.gameObject.SetActive(true);
+            currentTool = gloveTool;
+        }
+        else
+        {
+            scissorsTool.gameObject.SetActive(true);
+            gloveTool.gameObject.SetActive(false);
+            currentTool = scissorsTool;
+        }
+
+        OnToolsSwapped?.Invoke(currentTool.type);
         
     }
-
-
 }
