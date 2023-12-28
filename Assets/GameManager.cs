@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameData gameData;
 
     //Lists
-    public List<PickableObject> PickableObjectsList= new();
+    public List<PickableObject> PickableObjectsList => pickableObjectsList;
+    private List<PickableObject> pickableObjectsList = new();
     public List<Pot> PotList = new();
     public List<Charm> CharmList = new();
     //---  
