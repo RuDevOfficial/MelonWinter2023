@@ -24,4 +24,7 @@ public class GameData: ScriptableObject
     public float PotDetectionRadius;
     public float MinGrowthRate, MaxGrowthRate;
     public GameObject cloverHead;
+
+    [Header("Shutters Data")]
+    public float ShutterCloseTime;
 }
