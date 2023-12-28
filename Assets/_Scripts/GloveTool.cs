@@ -1,7 +1,13 @@
 ﻿using System;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
-public class GloveTool: MonoBehaviour
+public class ScissorsTool : Tool
+{
+
+}
+
+public class GloveTool: Tool
 {
     PickableObject currentObject;
     float pickUpRadius;
@@ -87,3 +93,5 @@ public class GloveTool: MonoBehaviour
         Gizmos.DrawWireSphere(mousePos, pickUpRadius);
     }
 }
+
+

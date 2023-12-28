@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class ToolsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum ToolType { Scissors, Glove}
+    Tool currentTool;
+
+    GloveTool gloveTool;
+
+
+    private void Start()
     {
-        
+        currentTool = gloveTool;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+
 }
