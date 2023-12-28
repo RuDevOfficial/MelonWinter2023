@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public List<PickableObject> PickableObjectsList => pickableObjectsList;
     private List<PickableObject> pickableObjectsList = new();
     public List<Pot> PotList => potList;
-    private List<Pot> potList = new();
+    [SerializeField] private List<Pot> potList = new();
 
     public List<Charm> CharmList => charmList;
     public List<Charm> charmList = new();
@@ -27,9 +27,7 @@ public class GameManager : MonoBehaviour
 
     #region GameLoopVariables
 
-    enum GState { Pending, Running, }
-    GState currentState = GState.Pending;
-    
+    [SerializeField] GState currentState = GState.Pending;
     
     #endregion
 
@@ -53,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        ShutterUI.OnOpening += SwitchState;
+
         currentPotUnlockAmmount = GameData.starterUnlockAmmount;
         LockPots();
     }
@@ -81,14 +81,32 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //
+
+    private void UpdatePendingState()
+    {
+
+    }
+
     private void UpdateRunningState()
     {
     }
 
-    //Cuando se transiciona entre estados
-    private void UpdatePendingState()
+    public void SwitchState(GState newState)
     {
+        currentState = newState;
+        OnEnterState(newState);
+    }
+
+    private void OnEnterState(GState newState)
+    {
+        switch (newState)
+        {
+            case GState.Pending:
+                break;
+            case GState.Running:
+                LockPots();
+                break;
+        }
     }
 
     void LockPots()
@@ -133,3 +151,5 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 }
+
+public enum GState { Pending, Running, }
