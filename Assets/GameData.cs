@@ -7,6 +7,10 @@ public class GameData: ScriptableObject
     public int starterUnlockAmmount;
     public int unlockIncreaseCount;
 
+    [Header("BoxData")]
+    public float xSize;
+    public float ySize;
+
     [Header("Clovers Data")]
     public float GrowthThreshold;
     public int OptimalGrowthStage;
@@ -19,4 +23,5 @@ public class GameData: ScriptableObject
     public Color lockedColor;
     public float PotDetectionRadius;
     public float MinGrowthRate, MaxGrowthRate;
+    public GameObject cloverHead;
 }

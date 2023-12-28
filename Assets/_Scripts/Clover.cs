@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class Clover : MonoBehaviour
 {
+    GameObject cloverHead;
+
     //References
     SpriteRenderer spriteRenderer;
 
@@ -20,6 +18,8 @@ public class Clover : MonoBehaviour
 
     public Action OnHarvest;
 
+    bool growing = false;
+
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class Clover : MonoBehaviour
         growthThresholdTime = GameManager.Get().GameData.GrowthThreshold;
         optimalGrowthStage = GameManager.Get().GameData.OptimalGrowthStage;
     }
-    
+
     void Start()
     {
         SetShow(false);
@@ -36,30 +36,60 @@ public class Clover : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(timer);
-        timer -= Time.deltaTime * growthMultiplier;
-        if (timer<= 0)
+        if (IsGrowing())
         {
-            GrowToNextStage();
-            timer = growthThresholdTime;
+            timer -= Time.deltaTime * growthMultiplier;
+            if (timer <= 0)
+            {
+                GrowToNextStage();
+                timer = growthThresholdTime;
+            }
         }
+
+        if (Input.GetKeyDown(KeyCode.E)) // Esto se borra luego
+        {
+            TryCut();
+        }
+    }
+
+    private bool IsGrowing()
+    {
+        return growing == true;
+    }
+
+    private void TryCut()
+    {
+        if (CanCut())
+        {
+            Cut();
+        }
+    }
+
+    private bool CanCut()
+    {
+        return growStage == GameManager.Get().GameData.OptimalGrowthStage;
     }
 
     private void GrowToNextStage()
     {
         growStage++;
-        Debug.Log("Stage: " + growStage);
-        if (growStage > optimalGrowthStage)
+        if (growStage == optimalGrowthStage)
+        {
+            spriteRenderer.color = Color.yellow;
+        }
+        else if (growStage > optimalGrowthStage)
         {
             spriteRenderer.color = Color.black;
+            growing = false;
         }
     }
 
-    public void BeginGrow(float mltp)
+    public void BeginGrow(float newMultiplier)
     {
         growStage = 0;
+        growing = true;
         spriteRenderer.color = Color.green;
-        growthMultiplier = mltp;
+        growthMultiplier = newMultiplier;
         SetShow(true);
     }
 
@@ -70,7 +100,22 @@ public class Clover : MonoBehaviour
 
     public void Cut()
     {
+        growStage = 0;
+        growing = false;
         SetShow(false);
+        SpawnCloverHead();
         OnHarvest?.Invoke();
+    }
+
+    private void SpawnCloverHead()
+    {
+        GameObject newClover =
+            Instantiate(
+                GameManager.Get().GameData.cloverHead,
+                this.transform.position,
+                this.transform.rotation
+                );
+
+        GameManager.Get().AddCharm(newClover.GetComponent<Charm>());
     }
 }

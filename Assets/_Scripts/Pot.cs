@@ -4,8 +4,8 @@ public class Pot : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
 
-    [SerializeField] float minGrowthRate;
-    [SerializeField] float maxGrowthRate;
+    float minGrowthRate;
+    float maxGrowthRate;
     float growthRate;
     Clover clover;
 
