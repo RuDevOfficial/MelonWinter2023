@@ -2465,7 +2465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOver: 0
   gameData: {fileID: 11400000, guid: 39e9875657c14934ebd19223e3c4ffd8, type: 2}
-  PickableObjectsList: []
   PotList:
   - {fileID: 1902909977}
   - {fileID: 1082912432}

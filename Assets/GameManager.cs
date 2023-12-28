@@ -7,27 +7,37 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //Level Values
-    public bool GameOver= false;
     public GameData GameData => gameData;
     [SerializeField] GameData gameData;
-
-    //Lists
-    public List<PickableObject> PickableObjectsList => pickableObjectsList;
-    private List<PickableObject> pickableObjectsList = new();
-    public List<Pot> PotList = new();
-    public List<Charm> CharmList = new();
-    //---  
-    
-    static GameManager instance;
-    int currentPotUnlockAmmount;
-    int currentNight = 1;
-    float nightTimer;
-
     public static GameManager Get()
     {
         return instance;
     }
+    static GameManager instance;
+
+    #region ListsVariables
+    public List<PickableObject> PickableObjectsList => pickableObjectsList;
+    private List<PickableObject> pickableObjectsList = new();
+    public List<Pot> PotList => potList;
+    private List<Pot> potList = new();
+
+    public List<Charm> CharmList => charmList;
+    public List<Charm> charmList = new();
+    #endregion
+
+    #region GameLoopVariables
+
+    enum GState { Pending, Running, }
+    GState currentState = GState.Pending;
+    
+    
+    #endregion
+
+    int currentPotUnlockAmmount;
+    int currentNight = 1;
+    float nightTimer;
+    public bool GameOver= false;
+
 
     private void Awake()
     {
@@ -43,78 +53,50 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        currentPotUnlockAmmount = GameManager.Get().GameData.starterUnlockAmmount;
+        currentPotUnlockAmmount = GameData.starterUnlockAmmount;
         LockPots();
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleNightLoop();
+        HandleGameLoop();
     }
 
     #region GameLoop
-    private void HandleNightLoop()
+    private void HandleGameLoop()
     {
-        nightTimer -= Time.deltaTime;
-        
-        if (GameOver)
+        switch (currentState)
         {
-            HandleLostGame();
-        }
-        else if (nightTimer <= 0)
-        {
-            HandleGoNextNight();
-        }
-
-
-    }
-
-    private void HandleGoNextNight()
-    {
-        nightTimer = gameData.nightDurationSeconds;
-        GoNextNight();
-    }
-
-    private void HandleLostGame()
-    {
-        //Seria hacer fade a negro y entonces resetear.
-        ResetNight();
-    }
-
-    private void ResetNight()
-    {
-        //Aqui se tiene que setear todo a 0 en base a la noche que toque.
-        currentPotUnlockAmmount = GameData.starterUnlockAmmount + currentNight * GameData.unlockIncreaseCount;
-        LockPots();
-    }
-
-    private void GoNextNight()
-    {
-
-        currentNight++;
-        if (currentNight>GameData.NightsAmount) // Si ya han pasado 4 noches, se acaba el juego.
-        {
-            EndGame();
-        }
-        else
-        {
-            ResetNight();
+            case GState.Pending:
+                UpdatePendingState();
+                break;
+            case GState.Running:
+                UpdateRunningState();
+                break;
+            default:
+                break;
         }
 
+
     }
 
+    //
+    private void UpdateRunningState()
+    {
+    }
 
-    private void EndGame()
+    //Cuando se transiciona entre estados
+    private void UpdatePendingState()
     {
     }
 
     void LockPots()
     {
-        for (int i = 0; i < PotList.Count; i++)
+        for (int i = 0; i < potList.Count; i++)
         {
-            if(i < currentPotUnlockAmmount) { PotList[i].Lock(false); }
-            else { PotList[i].Lock(true); }
+            if(i < currentPotUnlockAmmount) { potList[i].Lock(false); }
+            else { potList[i].Lock(true); }
         }
     }
     #endregion
@@ -123,29 +105,29 @@ public class GameManager : MonoBehaviour
     public void AddCharm(Charm charmObject)
     {
         Debug.Log("New charm added");
-        CharmList.Add(charmObject);
+        charmList.Add(charmObject);
     }
     public void RemoveCharm(Charm charm)
     {
-        for (int i = CharmList.Count - 1; i >= 0; i--)
+        for (int i = charmList.Count - 1; i >= 0; i--)
         {
-            if (CharmList[i] == charm)
+            if (charmList[i] == charm)
             {
-                CharmList.RemoveAt(i);
+                charmList.RemoveAt(i);
             }
         }
     }
     public void AddPickable(PickableObject pickableObject)
     {
-        PickableObjectsList.Add(pickableObject);
+        pickableObjectsList.Add(pickableObject);
     }
     public void RemovePickable(PickableObject pickableObject)
     {
-        for (int i = PickableObjectsList.Count-1; i >= 0; i--)
+        for (int i = pickableObjectsList.Count-1; i >= 0; i--)
         {
-            if (PickableObjectsList[i] == pickableObject)
+            if (pickableObjectsList[i] == pickableObject)
             {
-                PickableObjectsList.RemoveAt(i);
+                pickableObjectsList.RemoveAt(i);
             }
         }
     }
