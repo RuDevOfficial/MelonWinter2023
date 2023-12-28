@@ -22,7 +22,6 @@ public class DigitalWatch : MonoBehaviour
         {
             UpdateTimer();
             UpdateDisplay();
-            Debug.Log(time);
 
             if(TimerFinished())
             {

@@ -49,12 +49,12 @@ public class GloveTool: Tool
 
     private void OnDrawGizmos()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if(currentObject != null) { Gizmos.color = Color.yellow; }
-        else { Gizmos.color = Color.green; }
+        //if(currentObject != null) { Gizmos.color = Color.yellow; }
+        //else { Gizmos.color = Color.green; }
 
-        Gizmos.DrawWireSphere(mousePos, pickUpRadius);
+        //Gizmos.DrawWireSphere(mousePos, pickUpRadius);
     }
 }
 
