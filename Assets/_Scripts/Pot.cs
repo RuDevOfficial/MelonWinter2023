@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
+    SpriteRenderer spriteRenderer;
+
     [SerializeField] float minGrowthRate;
     [SerializeField] float maxGrowthRate;
     float growthRate;
@@ -10,17 +12,16 @@ public class Pot : MonoBehaviour
     bool unlocked = true;
     bool empty = true;
 
-    private void Start()
-    {
-        if (unlocked == true)
-        {
-            GameManager.Get().AddPot(this);
-        }
-    }
-
     private void Awake()
     {
         clover = GetComponentInChildren<Clover>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        minGrowthRate = GameManager.Get().GameData.MinGrowthRate;
+        maxGrowthRate = GameManager.Get().GameData.MaxGrowthRate;
     }
 
     private void ChangeGrowthRate()
@@ -30,21 +31,22 @@ public class Pot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TryPlant();
-        }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             TryHarvest();
         }
     }
 
-    public void TryPlant()
+    public void TryPlant(out bool success)
     {
         if (CanPlant())
         {
             Plant();
+            success = true;
+        }
+        else
+        {
+            success = false;
         }
     }
 
@@ -87,5 +89,12 @@ public class Pot : MonoBehaviour
         {
             Gizmos.DrawWireSphere(transform.position, GameManager.Get().GameData.PotDetectionRadius);
         }
+    }
+
+    public void Lock(bool doLock)
+    { 
+        unlocked = !doLock;
+        if (doLock) { spriteRenderer.color = GameManager.Get().GameData.lockedColor; }
+        else { spriteRenderer.color = GameManager.Get().GameData.unlockedColor; }
     }
 }

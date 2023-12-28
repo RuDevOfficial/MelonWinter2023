@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     static GameManager instance;
 
-
+    int currentPotUnlockAmmount;
 
     private void Awake()
     {
@@ -31,8 +31,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        currentPotUnlockAmmount = GameManager.Get().GameData.starterUnlockAmmount;
+        LockPots();
     }
+
     public static GameManager Get()
     {
         return instance;
@@ -58,8 +60,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddPot(Pot newPot)
+    void LockPots()
     {
-        PotList.Add(newPot);
+        for (int i = 0; i < PotList.Count; i++)
+        {
+            if(i < currentPotUnlockAmmount) { PotList[i].Lock(false); }
+            else { PotList[i].Lock(true); }
+        }
     }
 }

@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d538fbc1be16b3c41b887265ba74b79f, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  starterUnlockAmmount: 3
+  unlockIncreaseCount: 3
   GrowthThreshold: 3
   OptimalGrowthStage: 4
   PickUpRadius: 1
+  unlockedColor: {r: 0.6862745, g: 0.3254902, b: 0.050980397, a: 1}
+  lockedColor: {r: 0.3773585, g: 0.16305615, b: 0, a: 0.8235294}
   PotDetectionRadius: 1
+  MinGrowthRate: 0.8001
+  MaxGrowthRate: 1.2001
