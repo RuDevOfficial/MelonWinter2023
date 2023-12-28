@@ -25,3 +25,4 @@ MonoBehaviour:
   MinGrowthRate: 0.8001
   MaxGrowthRate: 1.2001
   cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
+  ShutterCloseTime: 0
