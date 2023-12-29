@@ -43,7 +43,7 @@ MonoBehaviour:
   MaxGrowthRate: 1.2001
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
-  MaxTimeToReact: 2
+  WarningDuration: 3
   SpawnTimesPerNightList: 02000000010000000200000002000000
   MinSpawnTimeOffset: 15
   debugMode: 0

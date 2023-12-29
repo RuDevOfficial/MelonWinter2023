@@ -19,6 +19,7 @@ public class Shutter : MonoBehaviour
     {
         maxTimer = closeClip.length;
         timeOffset = GameManager.Get().GameData.ShutterCloseTime;
+        DependencyInjector.AddDependency<Shutter>(this);
     }
 
     private void Update()

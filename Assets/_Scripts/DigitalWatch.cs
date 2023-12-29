@@ -13,7 +13,8 @@ public class DigitalWatch : MonoBehaviour
     //Keeps the sprites for all required numbers
     [SerializeField] Sprite[] numberSprites;
 
-    float time = 0.0f;
+    public static float NightTimer => time;
+    static float time = 0.0f;
     float timePerNight = 60.0f;
 
     bool finished = false;
@@ -74,7 +75,7 @@ public class DigitalWatch : MonoBehaviour
     private void UpdateTimer()
     {
         time = GameManager.Get().GameData.debugMode ?
-             time + Time.deltaTime * GameManager.Get().GameData.debugTimerMultiplier:
+             time + Time.deltaTime* GameManager.Get().GameData.debugTimerMultiplier:
              time + Time.deltaTime;
     }
 

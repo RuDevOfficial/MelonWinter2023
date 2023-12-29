@@ -38,7 +38,7 @@ public class GameData: ScriptableObject
     public float ShutterUITransitionTime;
 
     [Header("Police Data")]
-    public float MaxTimeToReact;
+    public float WarningDuration;
     public List<int> SpawnTimesPerNightList;
     public float MinSpawnTimeOffset;
 
