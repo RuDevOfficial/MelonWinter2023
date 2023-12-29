@@ -31,10 +31,10 @@ public class ShutterUI : MonoBehaviour
         GameManager.Get().OnPending += BeginOpening;
         GameManager.Get().OnPending += HideGameOverButtons;
 
-        GameManager.Get().OnWin += CloseShutter;
+        GameManager.Get().OnWin += CloseShutterGently;
         GameManager.Get().OnWin += UpdateNightDayDisplay;
 
-        GameManager.Get().OnGameOver += CloseShutter;
+        GameManager.Get().OnGameOver += CloseShutterHard;
         GameManager.Get().OnGameOver += ShowGameOverButtons;
     }
 
@@ -46,10 +46,10 @@ public class ShutterUI : MonoBehaviour
         GameManager.Get().OnPending -= BeginOpening;
         GameManager.Get().OnPending -= HideGameOverButtons;
 
-        GameManager.Get().OnWin -= CloseShutter;
+        GameManager.Get().OnWin -= CloseShutterGently;
         GameManager.Get().OnWin -= UpdateNightDayDisplay;
 
-        GameManager.Get().OnGameOver -= CloseShutter;
+        GameManager.Get().OnGameOver -= CloseShutterHard;
         GameManager.Get().OnGameOver -= ShowGameOverButtons;
     }
 
@@ -75,9 +75,14 @@ public class ShutterUI : MonoBehaviour
         animator.Play("Open");
     }
 
-    public void CloseShutter()
+    public void CloseShutterHard()
     {
-        animator.Play("Close");
+        animator.Play("CloseHard");
+    }
+
+    public void CloseShutterGently()
+    {
+        animator.Play("CloseGently");
     }
 
     bool IsAnimationPlaying()
