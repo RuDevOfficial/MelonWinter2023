@@ -4,11 +4,6 @@ using UnityEngine.UI;
 
 public class Clover : MonoBehaviour
 {
-    [SerializeField] Text text; 
-    GameObject cloverHead;
-
-
-
     //References
     SpriteRenderer spriteRenderer;
     [SerializeField] AnimationClip growClip;
@@ -40,7 +35,6 @@ public class Clover : MonoBehaviour
     {
         SetActiveClover(false);
         timer = growthThresholdTime;
-        text.text = growStage.ToString();
     }
 
     private void Update()
@@ -65,8 +59,6 @@ public class Clover : MonoBehaviour
     private void GrowToNextStage()
     {
         growStage++;
-
-        text.text = growStage.ToString();
         animator.SetTrigger("Grow");
         if (growStage == optimalGrowthStage)
         {
@@ -115,6 +107,6 @@ public class Clover : MonoBehaviour
                 this.transform.rotation
                 ).GetComponent<CloverHead>();
 
-        GameManager.Get().AddCharm(newCloverHead);
+        GameManager.Get().AddCloverHead(newCloverHead);
     }
 }

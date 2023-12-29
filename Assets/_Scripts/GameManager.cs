@@ -78,15 +78,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //We begin by unlocking the ammount of pots required
+        //We begin by unlocking the ammount of pots required, unlocking all the starter pots (they lock by default) and switch the state to Pending
+        //The game is already at pending, but it's not called, so we force it to call it again
+
         currentPotUnlockAmmount = GameData.starterUnlockAmmount;
-        LockPots();
+        UnlockPots();
         SwitchState(GState.Pending);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Handles all update related events by state, currently only the state of NightWon
+        //uses it
+
         HandleGameLoop();
     }
 
@@ -102,7 +107,7 @@ public class GameManager : MonoBehaviour
     }
 
     //When the Win state is reached we take a bit of time
-    //to breathe between winning and going to the next day
+    //to breathe between winning and switching to the pending state again
     private void UpdateWinTimer()
     {
         winTimer += Time.deltaTime;
@@ -113,6 +118,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Self explanatory
     public void SwitchState(GState newState)
     {
         OnLeaveState(currentState);
@@ -120,6 +126,7 @@ public class GameManager : MonoBehaviour
         OnEnterState(newState);
     }
 
+    //Self explanatory
     private void OnLeaveState(GState oldState)
     {
         switch (oldState)
@@ -133,12 +140,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void MoveNextNight()
-    {
-        currentNight++;
-        Mathf.Clamp(currentNight, 0, GameData.NightsAmount);
-    }
-    
+    //Self explanatory, calls each action based by state
     private void OnEnterState(GState newState)
     {
         switch (newState)
@@ -159,19 +161,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //When this function is called we add 1 to the currentNight value
+    //and make sure it doesn't go over the ammount of programmed nights
+    private void MoveNextNight()
+    {
+        currentNight++;
+        Mathf.Clamp(currentNight, 0, GameData.NightsAmount - 1);
+    }
+    
+    //Function used to unlock new pots after finishing the day
     private void UnlockNewPots()
     {
         currentPotUnlockAmmount += GameData.unlockIncreaseCount;
         PotManager.Get().Unlock(currentPotUnlockAmmount);
     }
 
+    //Function used when the player clicks the retry button
     public void Retry()
     {
         OnRetry?.Invoke();
         SwitchState(GState.Pending);
     }
 
-    void LockPots()
+    //Function that unlocks pots based on the ammount that are unlocked
+    void UnlockPots()
     {
         PotManager.instance.Unlock(currentPotUnlockAmmount);
     }
@@ -179,10 +192,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region ExternalCalls
-    public void AddCharm(CloverHead charmObject)
+
+    //This function adds a spawned head to the list.
+    public void AddCloverHead(CloverHead charmObject)
     {
         cloverHeadList.Add(charmObject);
     }
+
+    //This function removes the head from the list
     public void RemoveCloverHead(CloverHead charm)
     {
         for (int i = cloverHeadList.Count - 1; i >= 0; i--)
@@ -193,10 +210,14 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    //This function adds the pickable to the list when spawned
     public void AddPickable(PickableObject pickableObject)
     {
         pickableObjectsList.Add(pickableObject);
     }
+
+    //This function removes the pickable from the list
     public void RemovePickable(PickableObject pickableObject)
     {
         for (int i = pickableObjectsList.Count-1; i >= 0; i--)
@@ -208,6 +229,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //This method returns the ammount of charms required by checking the GameData
+    //associated by a specific index in the list charmsRequiredPerNight
     public int GetCharmsRequired()
     {
         int ammount = GameData.charmsRequiredPerNight[currentNight];
@@ -219,6 +242,7 @@ public class GameManager : MonoBehaviour
 
     #region Scene Management
 
+    //This just moves us back to the previous scene, the main menu.
     public void ReturnToMenu() { SceneManager.LoadScene(0); }
 
     #endregion
