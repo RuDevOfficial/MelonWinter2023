@@ -7,13 +7,16 @@ public abstract class Tool : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(GameManager.Get().CurrentState == GState.Running)
         {
-            TryDoPressAction();
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            TryDoReleaseAction();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                TryDoPressAction();
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                TryDoReleaseAction();
+            }
         }
     }
 

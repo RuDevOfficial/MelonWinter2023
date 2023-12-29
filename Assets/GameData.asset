@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starterUnlockAmmount: 3
   unlockIncreaseCount: 3
-  nightDurationSeconds: 0
-  NightsAmount: 0
+  nightDurationSeconds: 60
+  NightsAmount: 3
+  downtimeTime: 2
+  charmsRequiredPerNight: 0300000006000000090000000c000000
   xSize: 3
   ySize: 2
   GrowthThreshold: 3
   OptimalGrowthStage: 4
-  OptimalGrowthStageGrowthThreshold: 3
   PickUpRadius: 1
   unlockedColor: {r: 0.6862745, g: 0.3254902, b: 0.050980397, a: 1}
   lockedColor: {r: 0.3773585, g: 0.16305615, b: 0, a: 0.8235294}
@@ -28,4 +29,7 @@ MonoBehaviour:
   MinGrowthRate: 0.8001
   MaxGrowthRate: 1.2001
   cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
-  ShutterCloseTime: 0
+  ShutterCloseTime: 2
+  ShutterUITransitionTime: 1
+  debugMode: 0
+  debugTimerMultiplier: 10

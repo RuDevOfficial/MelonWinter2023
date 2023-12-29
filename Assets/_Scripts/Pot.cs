@@ -63,7 +63,6 @@ public class Pot : MonoBehaviour
     private void Harvest()
     {
         empty = true;
-        Debug.Log("Harvest!");
         clover.Cut();
     }
 
@@ -74,7 +73,6 @@ public class Pot : MonoBehaviour
 
     private void Plant()
     {
-        Debug.Log("BeginGrow!");
         empty = false;
         ChangeGrowthRate();
         clover.BeginGrow(growthRate);
@@ -93,10 +91,15 @@ public class Pot : MonoBehaviour
         }
     }
 
-    public void Lock(bool doLock)
-    { 
-        unlocked = !doLock;
-        if (doLock) { spriteRenderer.color = GameManager.Get().GameData.lockedColor; }
-        else { spriteRenderer.color = GameManager.Get().GameData.unlockedColor; }
+    public void Unlock()
+    {
+        unlocked = true;
+        spriteRenderer.color = GameManager.Get().GameData.unlockedColor;
+    }
+
+    public void Lock()
+    {
+        unlocked = false;
+        spriteRenderer.color = GameManager.Get().GameData.lockedColor;
     }
 }
