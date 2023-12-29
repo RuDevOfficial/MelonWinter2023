@@ -107,6 +107,6 @@ public class Clover : MonoBehaviour
                 ).GetComponent<CloverHead>();
 
         newCloverHead.Init(growStage);
-        GameManager.Get().AddCharm(newCloverHead);
+        GameManager.Get().AddCloverHead(newCloverHead);
     }
 }
