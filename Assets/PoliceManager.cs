@@ -6,7 +6,7 @@ using UnityEngine;
 public class PoliceManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-
+    [SerializeField] GameObject shutterButton;
     PoliceManager instance;
     public enum TStates { Gone, Warning, Spawn}
     TStates currentState = TStates.Gone;
@@ -22,10 +22,12 @@ public class PoliceManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Get().OnRunning += SetCurrentNightValues;
+        GameManager.Get().OnPending += ActivateButton;
     }
     private void OnDisable()
     {
-        GameManager.Get().OnRunning += SetCurrentNightValues;
+        GameManager.Get().OnRunning -= SetCurrentNightValues;
+        GameManager.Get().OnPending -= ActivateButton;
     }
 
     private void Awake()
@@ -38,6 +40,7 @@ public class PoliceManager : MonoBehaviour
     private void Start()
     {
         text.text = currentState.ToString();
+        shutterButton.SetActive(false);
     }
 
     private void ChangeState(TStates newState)
@@ -172,6 +175,9 @@ public class PoliceManager : MonoBehaviour
             Debug.Log("TimeToSpawn: " + spawnTimesList[i]); 
         }
     }
-
+    void ActivateButton() 
+    {
+        shutterButton.SetActive(true);
+    }
 
 }
