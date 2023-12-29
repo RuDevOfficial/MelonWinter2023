@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class PickableObject : MonoBehaviour
 {
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
     bool isPickedUp = false;
-
+    public bool CanBePicked = true;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,14 +21,15 @@ public abstract class PickableObject : MonoBehaviour
     public void Picked()
     {
         isPickedUp = true;
-        rb.simulated = false;
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 
     public virtual void Dropped()
     {
         isPickedUp = false;
-        rb.simulated = true;
-        rb.velocity = Vector2.zero;
+        Debug.Log(" rb is null " + rb == null);
+        GetComponent<Rigidbody2D>().simulated = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void Update()

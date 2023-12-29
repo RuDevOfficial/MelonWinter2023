@@ -4,14 +4,8 @@ using UnityEngine.UI;
 
 public class Clover : MonoBehaviour
 {
-    [SerializeField] Text text; 
-    GameObject cloverHead;
-
-
-
     //References
     SpriteRenderer spriteRenderer;
-    [SerializeField] AnimationClip growClip;
     [SerializeField] ParticleSystem magicParticles;
     [SerializeField] ParticleSystem witheredParticles;
     Animator animator;
@@ -24,9 +18,7 @@ public class Clover : MonoBehaviour
     int growStage = 0;
     int optimalGrowthStage;
 
-
     bool growing = false;
-
 
     private void Awake()
     {
@@ -40,7 +32,6 @@ public class Clover : MonoBehaviour
     {
         SetActiveClover(false);
         timer = growthThresholdTime;
-        text.text = growStage.ToString();
     }
 
     private void Update()
@@ -66,7 +57,6 @@ public class Clover : MonoBehaviour
     {
         growStage++;
 
-        text.text = growStage.ToString();
         animator.SetTrigger("Grow");
         if (growStage == optimalGrowthStage)
         {
@@ -78,8 +68,6 @@ public class Clover : MonoBehaviour
             witheredParticles.Play();
             growing = false;
         }
-
-        Debug.Log("STAGE: " + growStage);
     }
 
     public void BeginGrow(float newMultiplier)
@@ -100,10 +88,10 @@ public class Clover : MonoBehaviour
 
     public void Cut()
     {
+        SpawnCloverHead();
         growStage = 0;
         growing = false;
         SetActiveClover(false);
-        SpawnCloverHead();
     }
 
     private void SpawnCloverHead()
@@ -115,6 +103,7 @@ public class Clover : MonoBehaviour
                 this.transform.rotation
                 ).GetComponent<CloverHead>();
 
+        newCloverHead.Init(growStage);
         GameManager.Get().AddCharm(newCloverHead);
     }
 }

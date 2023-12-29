@@ -37,7 +37,7 @@ public class GloveTool: Tool
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             float distance = Vector2.Distance(pickablePos, mousePos);
-            if (distance <= pickUpRadius && distance < minDistance)
+            if (distance <= pickUpRadius && distance < minDistance && pickable.CanBePicked)
             {
                 minDistance = distance;
                 currentObject = pickable;
