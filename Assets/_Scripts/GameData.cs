@@ -28,8 +28,7 @@ public class GameData: ScriptableObject
     public float PickUpRadius;
 
     [Header("Pot Data")]
-    public Color unlockedColor;
-    public Color lockedColor;
+    public Sprite lockedSprite;
     public float PotDetectionRadius;
     public float MinGrowthRate, MaxGrowthRate;
 

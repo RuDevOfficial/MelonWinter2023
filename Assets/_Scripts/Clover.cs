@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Clover : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class Clover : MonoBehaviour
     private void GrowToNextStage()
     {
         growStage++;
+        magicParticles.Stop();
 
         animator.SetTrigger("Grow");
         if (growStage == optimalGrowthStage)
@@ -76,6 +78,7 @@ public class Clover : MonoBehaviour
         growing = true;
         growthMultiplier = newMultiplier;
         animator.Rebind();
+        spriteRenderer.flipX = Random.value >= 0.5f;
         animator.Update(0.0f);
         SetActiveClover(true);
     }
