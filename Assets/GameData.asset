@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starterUnlockAmmount: 3
   unlockIncreaseCount: 3
+  nightDurationSeconds: 0
+  NightsAmount: 0
   xSize: 3
   ySize: 2
-  GrowthThreshold: 1
+  GrowthThreshold: 3
   OptimalGrowthStage: 4
+  OptimalGrowthStageGrowthThreshold: 3
   PickUpRadius: 1
   unlockedColor: {r: 0.6862745, g: 0.3254902, b: 0.050980397, a: 1}
   lockedColor: {r: 0.3773585, g: 0.16305615, b: 0, a: 0.8235294}

@@ -1,12 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Clover : MonoBehaviour
 {
+    [SerializeField] Text text; 
     GameObject cloverHead;
+
+
 
     //References
     SpriteRenderer spriteRenderer;
+    [SerializeField] AnimationClip growClip;
+    [SerializeField] ParticleSystem magicParticles;
+    [SerializeField] ParticleSystem witheredParticles;
+    Animator animator;
 
     //Settings
     float growthMultiplier;
@@ -16,7 +24,6 @@ public class Clover : MonoBehaviour
     int growStage = 0;
     int optimalGrowthStage;
 
-    public Action OnHarvest;
 
     bool growing = false;
 
@@ -24,14 +31,16 @@ public class Clover : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         growthThresholdTime = GameManager.Get().GameData.GrowthThreshold;
         optimalGrowthStage = GameManager.Get().GameData.OptimalGrowthStage;
     }
 
     void Start()
     {
-        SetShow(false);
+        SetActiveClover(false);
         timer = growthThresholdTime;
+        text.text = growStage.ToString();
     }
 
     private void Update()
@@ -39,6 +48,7 @@ public class Clover : MonoBehaviour
         if (IsGrowing())
         {
             timer -= Time.deltaTime * growthMultiplier;
+            animator.SetBool("HalfWay", timer <= growthThresholdTime / 2); // Que el tiempo ha superado la mitad.
             if (timer <= 0)
             {
                 GrowToNextStage();
@@ -49,57 +59,51 @@ public class Clover : MonoBehaviour
 
     private bool IsGrowing()
     {
-        return growing == true;
-    }
-
-    private void TryCut()
-    {
-        if (CanCut())
-        {
-            Cut();
-        }
-    }
-
-    private bool CanCut()
-    {
-        return growStage == GameManager.Get().GameData.OptimalGrowthStage;
+        return growing;
     }
 
     private void GrowToNextStage()
     {
         growStage++;
+
+        text.text = growStage.ToString();
+        animator.SetTrigger("Grow");
         if (growStage == optimalGrowthStage)
         {
-            spriteRenderer.color = Color.yellow;
+            magicParticles.Play();
+            growthThresholdTime = GameManager.Get().GameData.OptimalGrowthStageGrowthThreshold;
         }
         else if (growStage > optimalGrowthStage)
         {
-            spriteRenderer.color = Color.black;
+            witheredParticles.Play();
             growing = false;
         }
+
+        Debug.Log("STAGE: " + growStage);
     }
 
     public void BeginGrow(float newMultiplier)
     {
         growStage = 0;
         growing = true;
-        spriteRenderer.color = Color.green;
         growthMultiplier = newMultiplier;
-        SetShow(true);
+        animator.Rebind();
+        animator.Update(0.0f);
+        SetActiveClover(true);
     }
 
-    private void SetShow(bool v)
+    private void SetActiveClover(bool value)
     {
-        spriteRenderer.enabled = v;
+        spriteRenderer.enabled = value;
+        animator.enabled = value;
     }
 
     public void Cut()
     {
         growStage = 0;
         growing = false;
-        SetShow(false);
+        SetActiveClover(false);
         SpawnCloverHead();
-        OnHarvest?.Invoke();
     }
 
     private void SpawnCloverHead()

@@ -8,6 +8,7 @@ public abstract class PickableObject : MonoBehaviour
 {
     Rigidbody2D rb;
     bool isPickedUp = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

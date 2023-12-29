@@ -16,6 +16,8 @@ public class Pot : MonoBehaviour
     {
         clover = GetComponentInChildren<Clover>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+
     }
 
     private void Start()

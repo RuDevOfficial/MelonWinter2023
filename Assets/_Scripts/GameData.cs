@@ -15,6 +15,8 @@ public class GameData: ScriptableObject
     [Header("Clovers Data")]
     public float GrowthThreshold;
     public int OptimalGrowthStage;
+    public int OptimalGrowthStageGrowthThreshold;
+    public GameObject cloverHead;
 
     [Header("Drag Data")]
     public float PickUpRadius;
@@ -24,7 +26,6 @@ public class GameData: ScriptableObject
     public Color lockedColor;
     public float PotDetectionRadius;
     public float MinGrowthRate, MaxGrowthRate;
-    public GameObject cloverHead;
 
     [Header("Shutters Data")]
     public float ShutterCloseTime;
