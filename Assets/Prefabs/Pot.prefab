@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 1072279755
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Sprite: {fileID: -1043999435, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
+  m_Sprite: {fileID: 1446735398, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -348,6 +348,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5661842275293576848, guid: ba6c14e65267c444caa1041fcdb52f76, type: 3}
       propertyPath: EmissionModule.m_BurstCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661842275293576848, guid: ba6c14e65267c444caa1041fcdb52f76, type: 3}
+      propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5661842275293576848, guid: ba6c14e65267c444caa1041fcdb52f76, type: 3}

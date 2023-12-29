@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/Pipelines.meta
+guid: c8a1a22be8dab654ea3bf9418b365eb5
+========
 guid: bf3e05a632a3c694eab6bb30796a08b6
+>>>>>>>> ProgrammingBranch:Assets/Scenes/Old.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
