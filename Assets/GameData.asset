@@ -22,13 +22,21 @@ MonoBehaviour:
   ySize: 2
   GrowthThreshold: 3
   OptimalGrowthStage: 4
+  OptimalGrowthStageGrowthThreshold: 3
+  cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
+  CloverHeadSpritesList:
+  - {fileID: 598504584, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
+  - {fileID: -1962817849, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
+  - {fileID: 1760081797, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
+  - {fileID: -868246338, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
+  - {fileID: -1647866294, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
+  - {fileID: -1718809439, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   PickUpRadius: 1
   unlockedColor: {r: 0.6862745, g: 0.3254902, b: 0.050980397, a: 1}
   lockedColor: {r: 0.3773585, g: 0.16305615, b: 0, a: 0.8235294}
   PotDetectionRadius: 1
   MinGrowthRate: 0.8001
   MaxGrowthRate: 1.2001
-  cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
   debugMode: 0

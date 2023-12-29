@@ -108,13 +108,13 @@ public class Clover : MonoBehaviour
 
     private void SpawnCloverHead()
     {
-        GameObject newClover =
+        CloverHead newCloverHead =
             Instantiate(
                 GameManager.Get().GameData.cloverHead,
                 this.transform.position,
                 this.transform.rotation
-                );
+                ).GetComponent<CloverHead>();
 
-        GameManager.Get().AddCharm(newClover.GetComponent<Charm>());
+        GameManager.Get().AddCharm(newCloverHead);
     }
 }

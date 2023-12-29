@@ -32,10 +32,10 @@ public class Box : MonoBehaviour
 
     private void Update()
     {
-        if (CharmCollided(out Charm charm)) { AddCharmToBox(charm); }
+        if (CharmCollided(out CloverHead charm)) { AddCharmToBox(charm); }
     }
 
-    private void AddCharmToBox(Charm charm)
+    private void AddCharmToBox(CloverHead charm)
     {
         currentCharmsCollected++;
         charm.Remove();
@@ -54,14 +54,14 @@ public class Box : MonoBehaviour
             && filled == false;
     }
 
-    private bool CharmCollided(out Charm chosenCharm)
+    private bool CharmCollided(out CloverHead chosenCharm)
     {
         chosenCharm = null;
 
         if (GameManager.Get().CharmList.Count == 0) { return false; }
 
 
-        foreach (Charm charm in GameManager.Get().CharmList)
+        foreach (CloverHead charm in GameManager.Get().CharmList)
         {
             if (charm.transform.position.x > this.transform.position.x - xSize / 2
                 && charm.transform.position.x < this.transform.position.x + xSize / 2

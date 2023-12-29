@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
 
     //List of charms that are generated after a clover is cut, this list gets new charms
     //when a clover spawns the charm (Gets added to the list)
-    public List<Charm> CharmList => charmList;
-    public List<Charm> charmList = new();
+    public List<CloverHead> CharmList => cloverHeadList;
+    public List<CloverHead> cloverHeadList = new();
     #endregion
 
     #region GameLoopVariables
@@ -179,17 +179,17 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region ExternalCalls
-    public void AddCharm(Charm charmObject)
+    public void AddCharm(CloverHead charmObject)
     {
-        charmList.Add(charmObject);
+        cloverHeadList.Add(charmObject);
     }
-    public void RemoveCharm(Charm charm)
+    public void RemoveCloverHead(CloverHead charm)
     {
-        for (int i = charmList.Count - 1; i >= 0; i--)
+        for (int i = cloverHeadList.Count - 1; i >= 0; i--)
         {
-            if (charmList[i] == charm)
+            if (cloverHeadList[i] == charm)
             {
-                charmList.RemoveAt(i);
+                cloverHeadList.RemoveAt(i);
             }
         }
     }

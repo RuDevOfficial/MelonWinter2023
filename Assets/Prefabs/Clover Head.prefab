@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1281439294775835160}
   - component: {fileID: 8185377835781746884}
   - component: {fileID: 6596760055163125954}
-  - component: {fileID: 2250004268559002501}
+  - component: {fileID: 3807386751991171272}
   m_Layer: 0
   m_Name: Clover Head
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2250004268559002501
+--- !u!114 &3807386751991171272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4395599043068288197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f00c84ded0a1a409461991936dad5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 209ee3b4d56648f479478d68882672da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloverSprites: []

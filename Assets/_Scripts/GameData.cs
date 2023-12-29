@@ -22,6 +22,7 @@ public class GameData: ScriptableObject
     public int OptimalGrowthStage;
     public int OptimalGrowthStageGrowthThreshold;
     public GameObject cloverHead;
+    public List<Sprite> CloverHeadSpritesList;
 
     [Header("Drag Data")]
     public float PickUpRadius;

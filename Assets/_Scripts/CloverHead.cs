@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Charm : PickableObject
+public class CloverHead : PickableObject
 {
     [SerializeField] List<Sprite> cloverSprites;
 
@@ -31,7 +31,7 @@ public class Charm : PickableObject
     public void Remove() 
     {
         Dropped();
-        GameManager.Get().RemoveCharm(this);
+        GameManager.Get().RemoveCloverHead(this);
         Destroy(this.gameObject);
     }
 }
