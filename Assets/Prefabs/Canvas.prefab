@@ -1256,6 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textUI: {fileID: 553388891028186086}
   gameOverButtonGroup: {fileID: 2829157140184131821}
+  shutterImage: {fileID: 8708965334878886645}
 --- !u!95 &6562790613586430382
 Animator:
   serializedVersion: 5

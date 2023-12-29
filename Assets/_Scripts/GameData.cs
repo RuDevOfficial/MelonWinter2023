@@ -20,7 +20,7 @@ public class GameData: ScriptableObject
     [Header("Clovers Data")]
     public float GrowthThreshold;
     public int OptimalGrowthStage;
-    public int OptimalGrowthStageGrowthThreshold;
+    public float OptimalGrowthStageGrowthThreshold;
     public List<Sprite> CloverHeadSpritesList;
     public GameObject cloverHead;
     public GameObject seed;

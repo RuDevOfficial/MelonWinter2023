@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starterUnlockAmmount: 3
   unlockIncreaseCount: 3
-  NightsAmount: 3
+  NightsAmount: 4
   DurationPerNightList:
   - 60
   - 70
@@ -26,7 +26,7 @@ MonoBehaviour:
   ySize: 2
   GrowthThreshold: 3
   OptimalGrowthStage: 4
-  OptimalGrowthStageGrowthThreshold: 3
+  OptimalGrowthStageGrowthThreshold: 1.5
   CloverHeadSpritesList:
   - {fileID: 598504584, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   - {fileID: -1962817849, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
@@ -44,7 +44,7 @@ MonoBehaviour:
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
   WarningDuration: 3
-  SpawnTimesPerNightList: 02000000010000000200000002000000
+  SpawnTimesPerNightList: 00000000010000000200000002000000
   MinSpawnTimeOffset: 15
   debugMode: 0
   debugTimerMultiplier: 10
