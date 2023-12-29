@@ -117350,7 +117350,11 @@ PrefabInstance:
     - target: {fileID: 1628881273146995011, guid: 2f0d01697e121ca488a1158631a2a9bd, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2126541857, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
+      objectReference: {fileID: -1043999435, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
+    - target: {fileID: 1628881273146995011, guid: 2f0d01697e121ca488a1158631a2a9bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ba02b618e386a24299e92b6088c4a54, type: 2}
     - target: {fileID: 1796494308799230107, guid: 2f0d01697e121ca488a1158631a2a9bd, type: 3}
       propertyPath: m_Name
       value: Pot_01
@@ -117399,6 +117403,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4861453112767702226, guid: 2f0d01697e121ca488a1158631a2a9bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ba02b618e386a24299e92b6088c4a54, type: 2}
     - target: {fileID: 6581139235625227535, guid: 2f0d01697e121ca488a1158631a2a9bd, type: 3}
       propertyPath: growClip
       value: 
