@@ -23,7 +23,6 @@ MonoBehaviour:
   GrowthThreshold: 3
   OptimalGrowthStage: 4
   OptimalGrowthStageGrowthThreshold: 3
-  cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
   CloverHeadSpritesList:
   - {fileID: 598504584, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   - {fileID: -1962817849, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
@@ -31,6 +30,8 @@ MonoBehaviour:
   - {fileID: -868246338, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   - {fileID: -1647866294, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   - {fileID: -1718809439, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
+  cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
+  seed: {fileID: 8439951934560786100, guid: 328222398bf5977479d4f661282ee10c, type: 3}
   PickUpRadius: 1
   lockedSprite: {fileID: 21300000, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
   PotDetectionRadius: 1

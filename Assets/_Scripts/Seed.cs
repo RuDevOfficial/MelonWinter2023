@@ -2,6 +2,16 @@ using UnityEngine;
 
 public class Seed : PickableObject
 {
+    public bool InBag => FromBag;
+    [SerializeField] bool FromBag = true;
+
+    public override void Picked()
+    {
+        base.Picked();
+
+        FromBag = false;
+    }
+
     public override void Dropped()
     {
         base.Dropped();
