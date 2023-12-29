@@ -22,7 +22,7 @@ MonoBehaviour:
   ySize: 2
   GrowthThreshold: 3
   OptimalGrowthStage: 4
-  OptimalGrowthStageGrowthThreshold: 3
+  OptimalGrowthStageGrowthThreshold: 1
   CloverHeadSpritesList:
   - {fileID: 598504584, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   - {fileID: -1962817849, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
@@ -39,5 +39,8 @@ MonoBehaviour:
   MaxGrowthRate: 1.2001
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
+  MaxTimeToReact: 0
+  SpawnTimesPerNightList: 
+  MinSpawnTimeOffset: 0
   debugMode: 0
   debugTimerMultiplier: 10

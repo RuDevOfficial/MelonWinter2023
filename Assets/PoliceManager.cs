@@ -19,7 +19,7 @@ public class PoliceManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Get().GameData
+        
     }
 
 
