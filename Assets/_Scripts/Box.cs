@@ -3,32 +3,27 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    public static Box instance;
+    private static Box instance;
 
-    public Action OnBoxFilled; 
+    public Action OnBoxFilled;
+
     private int currentCharmsCollected = 0;
-
     bool filled = false;
 
-    private void OnEnable()
-    {
-        GameManager.Get().OnRunning += UnlockBox;
-    }
+    //cambiar esto por sprite bounding box
+    float xSize = 1.5f;
+    float ySize = 2.0f;
+    float yOffset = 0.5f;
 
-    private void OnDisable()
-    {
-        GameManager.Get().OnRunning += UnlockBox;
-    }
+    private void OnEnable() { GameManager.Get().OnRunning += ResetBox; }
+
+    private void OnDisable() { GameManager.Get().OnRunning += ResetBox; }
 
     private void Awake()
     {
         if (instance == null) { instance = this; }
         else { Destroy(this); }
     }
-
-    float xSize = 1.5f;
-    float ySize = 2.0f;
-    float yOffset = 0.5f;
 
     private void Update()
     {
@@ -42,7 +37,6 @@ public class Box : MonoBehaviour
 
         if (BoxJustFilled())
         {
-            Debug.Log("Filled it all");
             filled = true;
             GameManager.Get().SwitchState(GState.NightWon);
         }
@@ -85,7 +79,7 @@ public class Box : MonoBehaviour
         }
     }
 
-    private void UnlockBox()
+    private void ResetBox()
     {
         filled = false;
         currentCharmsCollected = 0;

@@ -7,14 +7,14 @@ public class Pot : MonoBehaviour
     float minGrowthRate;
     float maxGrowthRate;
     float growthRate;
-    Clover clover;
+    CloverPlant clover;
 
     bool unlocked = true;
     bool empty = true;
 
     private void Awake()
     {
-        clover = GetComponentInChildren<Clover>();
+        clover = GetComponentInChildren<CloverPlant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
 

@@ -2,14 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Clover : MonoBehaviour
+public class CloverPlant : MonoBehaviour
 {
     //References
     SpriteRenderer spriteRenderer;
+    Animator animator;
+
     [SerializeField] AnimationClip growClip;
     [SerializeField] ParticleSystem magicParticles;
     [SerializeField] ParticleSystem witheredParticles;
-    Animator animator;
 
     //Settings
     float growthMultiplier;
