@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameData", menuName = ("GameData"))]
 public class GameData: ScriptableObject
@@ -8,6 +9,10 @@ public class GameData: ScriptableObject
     public int unlockIncreaseCount;
     public float nightDurationSeconds;
     public int NightsAmount;
+    public float downtimeTime;
+
+    public List<int> charmsRequiredPerNight = new();
+
     [Header("BoxData")]
     public float xSize;
     public float ySize;
@@ -28,4 +33,9 @@ public class GameData: ScriptableObject
 
     [Header("Shutters Data")]
     public float ShutterCloseTime;
+    public float ShutterUITransitionTime;
+
+    [Header("Debug Data")]
+    public bool debugMode;
+    public int debugTimerMultiplier = 2;
 }

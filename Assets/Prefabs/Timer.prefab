@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea4c976743d40b49938b1d07f1e0e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugTimeMultiplier: 1
   alteredNumber: {fileID: 1140875150785754737}
   numberSprites:
   - {fileID: 21300000, guid: 181a302c616e5f143988090d74df4f9b, type: 3}
