@@ -11,7 +11,7 @@ public abstract class PickableObject : MonoBehaviour
 
     private void Start() { GameManager.Get().AddPickable(this); }
 
-    public void Picked()
+    public virtual void Picked()
     {
         isPickedUp = true;
         GetComponent<Rigidbody2D>().simulated = false;
