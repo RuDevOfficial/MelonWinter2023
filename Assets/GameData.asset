@@ -32,7 +32,7 @@ MonoBehaviour:
   - {fileID: -1647866294, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   - {fileID: -1718809439, guid: 454d8da82d1d4a84e8f68a00ba4418c3, type: 3}
   PickUpRadius: 1
-  lockedSprite: {fileID: 21300000, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
+  lockedSprite: {fileID: 1446735398, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
   PotDetectionRadius: 1
   MinGrowthRate: 0.8001
   MaxGrowthRate: 1.2001
