@@ -13,16 +13,17 @@ public class ShutterUI : MonoBehaviour
     Animator animator;
     [SerializeField] TextMeshProUGUI textUI;
     [SerializeField] CanvasGroup gameOverButtonGroup;
+    [SerializeField] Image shutterImage;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        shutterImage.enabled = true;
 
         if (instance == null) { instance = this; }
         else { Destroy(this); }
 
     }
-
     private void OnEnable()
     {
         DigitalWatch.OnTimerFinish += UpdateTextDisplay;

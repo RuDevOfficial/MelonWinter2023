@@ -21,17 +21,16 @@ public class DigitalWatch : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Get().OnPending += ResetTimer;   
-        GameManager.Get().OnRunning += RestartTimer;   
+        GameManager.Get().OnRunning += StartTimer;   
     }
     private void OnDisable()
     {
         GameManager.Get().OnPending -= ResetTimer;   
-        GameManager.Get().OnRunning -= RestartTimer;   
+        GameManager.Get().OnRunning -= StartTimer;   
     }
 
     private void Start()
     {
-        timePerNight = GameManager.Get().GameData.nightDurationSeconds;
     }
 
     private void Update()
@@ -53,10 +52,11 @@ public class DigitalWatch : MonoBehaviour
     void ResetTimer()
     {
         time = 0.0f;
+        timePerNight = GameManager.Get().GameData.DurationPerNightList[GameManager.Get().CurrentNight];
         UpdateDisplay();
     }
 
-    void RestartTimer()
+    void StartTimer()
     {
         finished = false;
     }
@@ -68,7 +68,7 @@ public class DigitalWatch : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        alteredNumberImage.sprite = numberSprites[Math.Clamp((int)time / 10, 0, 6)];
+        alteredNumberImage.sprite = numberSprites[Math.Clamp((int)(time/(10 * timePerNight/60)), 0, 6)];
     }
 
     private void UpdateTimer()

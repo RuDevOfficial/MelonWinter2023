@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
     {
         //Handles all update related events by state, currently only the state of NightWon
         //uses it
-
         HandleGameLoop();
     }
 

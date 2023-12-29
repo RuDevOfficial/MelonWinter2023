@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starterUnlockAmmount: 3
   unlockIncreaseCount: 3
-  nightDurationSeconds: 60
   NightsAmount: 3
+  DurationPerNightList:
+  - 60
+  - 70
+  - 80
+  - 90
   downtimeTime: 2
   charmsRequiredPerNight: 0300000006000000090000000c000000
   xSize: 3
@@ -39,5 +43,8 @@ MonoBehaviour:
   MaxGrowthRate: 1.2001
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
+  MaxTimeToReact: 2
+  SpawnTimesPerNightList: 02000000010000000200000002000000
+  MinSpawnTimeOffset: 15
   debugMode: 0
   debugTimerMultiplier: 10

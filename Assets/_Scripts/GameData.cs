@@ -7,8 +7,8 @@ public class GameData: ScriptableObject
     [Header("Game Progression Data")]
     public int starterUnlockAmmount;
     public int unlockIncreaseCount;
-    public float nightDurationSeconds;
     public int NightsAmount;
+    public List<float> DurationPerNightList;
     public float downtimeTime;
 
     public List<int> charmsRequiredPerNight = new();
