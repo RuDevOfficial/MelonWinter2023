@@ -37,6 +37,11 @@ public class GameData: ScriptableObject
     public float ShutterCloseTime;
     public float ShutterUITransitionTime;
 
+    [Header("Police Data")]
+    public float MaxTimeToReact;
+    public List<int> SpawnTimesPerNightList;
+    public float MinSpawnTimeOffset;
+
     [Header("Debug Data")]
     public bool debugMode;
     public int debugTimerMultiplier = 2;
