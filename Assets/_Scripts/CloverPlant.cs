@@ -1,16 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
-public class CloverPlant : MonoBehaviour
+public class Clover : MonoBehaviour
 {
     //References
     SpriteRenderer spriteRenderer;
-    Animator animator;
-
-    [SerializeField] AnimationClip growClip;
     [SerializeField] ParticleSystem magicParticles;
     [SerializeField] ParticleSystem witheredParticles;
+    Animator animator;
 
     //Settings
     float growthMultiplier;
@@ -20,9 +19,7 @@ public class CloverPlant : MonoBehaviour
     int growStage = 0;
     int optimalGrowthStage;
 
-
     bool growing = false;
-
 
     private void Awake()
     {
@@ -60,6 +57,8 @@ public class CloverPlant : MonoBehaviour
     private void GrowToNextStage()
     {
         growStage++;
+        magicParticles.Stop();
+
         animator.SetTrigger("Grow");
         if (growStage == optimalGrowthStage)
         {
@@ -71,8 +70,6 @@ public class CloverPlant : MonoBehaviour
             witheredParticles.Play();
             growing = false;
         }
-
-        Debug.Log("STAGE: " + growStage);
     }
 
     public void BeginGrow(float newMultiplier)
@@ -81,6 +78,7 @@ public class CloverPlant : MonoBehaviour
         growing = true;
         growthMultiplier = newMultiplier;
         animator.Rebind();
+        spriteRenderer.flipX = Random.value >= 0.5f;
         animator.Update(0.0f);
         SetActiveClover(true);
     }
@@ -93,10 +91,10 @@ public class CloverPlant : MonoBehaviour
 
     public void Cut()
     {
+        SpawnCloverHead();
         growStage = 0;
         growing = false;
         SetActiveClover(false);
-        SpawnCloverHead();
     }
 
     private void SpawnCloverHead()
@@ -108,6 +106,7 @@ public class CloverPlant : MonoBehaviour
                 this.transform.rotation
                 ).GetComponent<CloverHead>();
 
+        newCloverHead.Init(growStage);
         GameManager.Get().AddCloverHead(newCloverHead);
     }
 }

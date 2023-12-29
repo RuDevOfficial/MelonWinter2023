@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     //List of charms that are generated after a clover is cut, this list gets new charms
     //when a clover spawns the charm (Gets added to the list)
     public List<CloverHead> CharmList => cloverHeadList;
-    public List<CloverHead> cloverHeadList = new();
+    private List<CloverHead> cloverHeadList = new();
     #endregion
 
     #region GameLoopVariables

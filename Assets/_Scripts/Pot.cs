@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
+    Sprite unlockedSprite;
     SpriteRenderer spriteRenderer;
 
     float minGrowthRate;
@@ -16,7 +17,7 @@ public class Pot : MonoBehaviour
     {
         clover = GetComponentInChildren<CloverPlant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        unlockedSprite = spriteRenderer.sprite;
 
     }
 
@@ -94,12 +95,12 @@ public class Pot : MonoBehaviour
     public void Unlock()
     {
         unlocked = true;
-        spriteRenderer.color = GameManager.Get().GameData.unlockedColor;
+        spriteRenderer.sprite = unlockedSprite;
     }
 
     public void Lock()
     {
         unlocked = false;
-        spriteRenderer.color = GameManager.Get().GameData.lockedColor;
+        spriteRenderer.sprite = GameManager.Get().GameData.lockedSprite;
     }
 }

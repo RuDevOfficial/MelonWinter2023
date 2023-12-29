@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class CloverHead : PickableObject
 {
-    [SerializeField] List<Sprite> cloverSprites;
-
     SpriteRenderer spriteRenderer;
     bool optimal = false;
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void Init(int stage)
     {
-        spriteRenderer.sprite = cloverSprites[stage];
+        spriteRenderer.sprite = GameManager.Get().GameData.CloverHeadSpritesList[stage];
         if (stage == GameManager.Get().GameData.OptimalGrowthStage)
         {
             optimal = true;
         }
-
+        
         if (!optimal)
         {
             Dropped();
-            
         }
+
+        CanBePicked = optimal;
     }
 
     public void Remove() 
