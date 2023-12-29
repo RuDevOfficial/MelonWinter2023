@@ -3,19 +3,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class Clover : MonoBehaviour
+public class CloverPlant : MonoBehaviour
 {
     //References
-    SpriteRenderer spriteRenderer;
-    [SerializeField] ParticleSystem magicParticles;
+    [Header("References")]
     [SerializeField] ParticleSystem witheredParticles;
+    [SerializeField] ParticleSystem magicParticles;
+
+    SpriteRenderer spriteRenderer;
     Animator animator;
 
     //Settings
     float growthMultiplier;
-
     float growthThresholdTime;
-    float timer;
+    float growthTimer;
+
     int growStage = 0;
     int optimalGrowthStage;
 
@@ -25,39 +27,37 @@ public class Clover : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        growthThresholdTime = GameManager.Get().GameData.GrowthThreshold;
-        optimalGrowthStage = GameManager.Get().GameData.OptimalGrowthStage;
     }
 
     void Start()
     {
-        SetActiveClover(false);
-        timer = growthThresholdTime;
+        growthThresholdTime = GameManager.Get().GameData.GrowthThreshold;
+        optimalGrowthStage = GameManager.Get().GameData.OptimalGrowthStage;
+
+        SetRenderClover(false);
+        growthTimer = growthThresholdTime;
     }
 
+    //If the cloverPlant is growing, we update the growthTimer using the deltaTime and growthMultiplier (this way there is a speed offset).
+    //Meanwhile, we set the HalfWay bool in the animator to true if the timear reached half the time to grow to next stage.
+    //If the timer reaches 0, we grow to the next stage and reset the timer.
     private void Update()
     {
-        if (IsGrowing())
+        if (growing == true)
         {
-            timer -= Time.deltaTime * growthMultiplier;
-            animator.SetBool("HalfWay", timer <= growthThresholdTime / 2); // Que el tiempo ha superado la mitad.
-            if (timer <= 0)
+            growthTimer -= Time.deltaTime * growthMultiplier;
+            animator.SetBool("HalfWay", growthTimer <= growthThresholdTime / 2);
+            if (growthTimer <= 0)
             {
                 GrowToNextStage();
-                timer = growthThresholdTime;
+                growthTimer = growthThresholdTime;
             }
         }
-    }
-
-    private bool IsGrowing()
-    {
-        return growing;
     }
 
     private void GrowToNextStage()
     {
         growStage++;
-        magicParticles.Stop();
 
         animator.SetTrigger("Grow");
         if (growStage == optimalGrowthStage)
@@ -67,6 +67,7 @@ public class Clover : MonoBehaviour
         }
         else if (growStage > optimalGrowthStage)
         {
+            magicParticles.Stop();
             witheredParticles.Play();
             growing = false;
         }
@@ -77,13 +78,15 @@ public class Clover : MonoBehaviour
         growStage = 0;
         growing = true;
         growthMultiplier = newMultiplier;
+        //Reset animator
         animator.Rebind();
-        spriteRenderer.flipX = Random.value >= 0.5f;
         animator.Update(0.0f);
-        SetActiveClover(true);
+        //
+        spriteRenderer.flipX = Random.value >= 0.5f;
+        SetRenderClover(true);
     }
 
-    private void SetActiveClover(bool value)
+    private void SetRenderClover(bool value)
     {
         spriteRenderer.enabled = value;
         animator.enabled = value;
@@ -94,7 +97,8 @@ public class Clover : MonoBehaviour
         SpawnCloverHead();
         growStage = 0;
         growing = false;
-        SetActiveClover(false);
+        magicParticles.Stop();
+        SetRenderClover(false);
     }
 
     private void SpawnCloverHead()

@@ -22,18 +22,9 @@ public class PotManager : MonoBehaviour
 
     public static PotManager Get() { return instance; }
 
-    private void Start()
-    {
-        LockAll();
-    }
+    private void Start() { LockAll(); }
 
-    void LockAll()
-    {
-        foreach (Pot pot in potList)
-        {
-            pot.Lock();
-        }
-    }
+    void LockAll() { foreach (Pot pot in potList) { pot.Lock(); } }
 
     public void Unlock(int fromAmmount)
     {

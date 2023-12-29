@@ -14,17 +14,11 @@ public class CloverHead : PickableObject
     public void Init(int stage)
     {
         spriteRenderer.sprite = GameManager.Get().GameData.CloverHeadSpritesList[stage];
-        if (stage == GameManager.Get().GameData.OptimalGrowthStage)
-        {
-            optimal = true;
-        }
         
-        if (!optimal)
-        {
-            Dropped();
-        }
-
+        optimal = stage == GameManager.Get().GameData.OptimalGrowthStage;
         CanBePicked = optimal;
+        
+        if (!optimal) { Dropped(); }
     }
 
     public void Remove() 

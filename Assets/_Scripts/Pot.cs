@@ -10,7 +10,7 @@ public class Pot : MonoBehaviour
     float growthRate;
     CloverPlant clover;
 
-    bool unlocked = true;
+    bool unlocked = false;
     bool empty = true;
 
     private void Awake()

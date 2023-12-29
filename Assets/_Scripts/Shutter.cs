@@ -4,17 +4,16 @@ using UnityEngine;
 public class Shutter : MonoBehaviour
 {
     Animator animator;
-    public AnimationClip closeClip;
+    [SerializeField] AnimationClip closeClip;
+
+    public ShutterState State => currentState;
     ShutterState currentState = ShutterState.Waiting;
 
     float timer = 0.0f;
     float maxTimer = 0.0f;
     float timeOffset = 2.0f;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    private void Awake() { animator = GetComponent<Animator>(); }
 
     private void Start()
     {
@@ -52,13 +51,14 @@ public class Shutter : MonoBehaviour
 
     private bool CanClose()
     {
-        return currentState == ShutterState.Waiting;
+        return currentState == ShutterState.Waiting
+            && GameManager.Get().CurrentState == GState.Running;
     }
 
     public void SetToClosed() { currentState = ShutterState.Closed; }
     public void SetToWaiting() { currentState = ShutterState.Waiting; }
 
-    enum ShutterState
+    public enum ShutterState
     {
         Waiting,
         Closing,

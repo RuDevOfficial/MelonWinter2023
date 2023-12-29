@@ -8,9 +8,12 @@ public class ShowCursor : MonoBehaviour
     [SerializeField] Texture2D scissorsCursorTexture;
     [SerializeField] Texture2D gloveCursorTexture;
 
+    private void OnEnable() { ToolsManager.OnToolsSwapped += OnToolsSwapped; }
+
+    private void OnDisable() { ToolsManager.OnToolsSwapped -= OnToolsSwapped; }
+
     void Start()
     {
-        ToolsManager.OnToolsSwapped += OnToolsSwapped;
         Vector2 cursorHotSpot = new Vector2(gloveCursorTexture.width / 2, gloveCursorTexture.height / 2);
         Cursor.SetCursor(gloveCursorTexture, cursorHotSpot, CursorMode.ForceSoftware);
     }

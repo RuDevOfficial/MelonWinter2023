@@ -25,7 +25,7 @@ public class ShutterUI : MonoBehaviour
 
     private void OnEnable()
     {
-        DigitalWatch.OnFinish += UpdateTextDisplay;
+        DigitalWatch.OnTimerFinish += UpdateTextDisplay;
 
         GameManager.Get().OnPending += UpdateNightDayDisplay;
         GameManager.Get().OnPending += BeginOpening;
@@ -40,7 +40,7 @@ public class ShutterUI : MonoBehaviour
 
     private void OnDisable()
     {
-        DigitalWatch.OnFinish -= UpdateTextDisplay;
+        DigitalWatch.OnTimerFinish -= UpdateTextDisplay;
 
         GameManager.Get().OnPending += UpdateNightDayDisplay;
         GameManager.Get().OnPending -= BeginOpening;

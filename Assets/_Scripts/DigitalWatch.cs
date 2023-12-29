@@ -4,16 +4,19 @@ using UnityEngine.UI;
 
 public class DigitalWatch : MonoBehaviour
 {
-    public Image alteredNumber;
+    //Number that changes sprites
+    [SerializeField] Image alteredNumberImage;
 
-    public Sprite[] numberSprites = new Sprite[5];
+    //This action happens when the watch finishes
+    public static Action<string> OnTimerFinish;
+
+    //Keeps the sprites for all required numbers
+    [SerializeField] Sprite[] numberSprites;
 
     float time = 0.0f;
     float timePerNight = 60.0f;
 
     bool finished = false;
-
-    public static Action<string> OnFinish;
 
     private void OnEnable()
     {
@@ -42,7 +45,7 @@ public class DigitalWatch : MonoBehaviour
             {
                 finished = true;
                 GameManager.Get().SwitchState(GState.GameOver);
-                OnFinish?.Invoke("You got busted!");
+                OnTimerFinish?.Invoke("You got busted!");
             }
         }
     }
@@ -60,12 +63,12 @@ public class DigitalWatch : MonoBehaviour
 
     private bool TimerFinished()
     {
-        return time > timePerNight;
+        return time >= timePerNight;
     }
 
     private void UpdateDisplay()
     {
-        alteredNumber.sprite = numberSprites[Math.Clamp((int)time / 10, 0, 6)];
+        alteredNumberImage.sprite = numberSprites[Math.Clamp((int)time / 10, 0, 6)];
     }
 
     private void UpdateTimer()

@@ -9,7 +9,6 @@ public class Seed : PickableObject
         if (PotManager.Get().GetClosestPot(this.transform.position, out Pot closerPot))
         {
             closerPot.TryPlant(out bool success);
-
             if (success) { Destroy(this.gameObject); }
         }
     }
