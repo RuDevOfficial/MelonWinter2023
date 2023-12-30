@@ -7,6 +7,7 @@ public class PoliceManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] GameObject shutterButton;
+    [SerializeField] Animator ligthAnimator;
     PoliceManager instance;
     public enum TStates { Gone, Warning, Spawn}
     TStates currentState = TStates.Gone;
@@ -39,15 +40,12 @@ public class PoliceManager : MonoBehaviour
 
     private void Start()
     {
-        text.text = currentState.ToString();
         shutterButton.SetActive(false);
     }
 
     private void ChangeState(TStates newState)
     {
         currentState = newState;
-        Debug.Log(newState);
-        text.text = currentState.ToString();
         OnEnterState(newState);
     }
 
@@ -57,9 +55,11 @@ public class PoliceManager : MonoBehaviour
         {
             case TStates.Gone:
                 Debug.Log("Index spawn: " + spawnIndex);
+                ligthAnimator.SetTrigger("Swap");
                 break;
             case TStates.Warning:
                 warningTimer = GameManager.Get().GameData.WarningDuration;
+                ligthAnimator.SetTrigger("Swap");
                 break;
             case TStates.Spawn:
                 spawnTimer = GameManager.Get().GameData.ShutterCloseTime;
