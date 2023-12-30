@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99936a2e249b668429fcd0ecde81f247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scissorsCursorTexture: {fileID: 2800000, guid: 6f5292dba6b0d324db361173a00a2acd, type: 3}
-  scissorsPressedCursorTexture: {fileID: 2800000, guid: a6504b6064992c94692b9493d15bf5f1, type: 3}
-  gloveCursorTexture: {fileID: 2800000, guid: 3421d81a7f9dcf5468f82f1e890329f8, type: 3}
-  glovePressedCursorTexture: {fileID: 2800000, guid: 45635c31c64f3214d98cf2029785f562, type: 3}
+  scissorsCursorTexture: {fileID: 2800000, guid: 25b0fb8ec6599cc408c454c89909c9bf, type: 3}
+  scissorsPressedCursorTexture: {fileID: 2800000, guid: 28dc3809d79e9144fb4f807d28d8b828, type: 3}
+  gloveCursorTexture: {fileID: 2800000, guid: 9e3ed9a6ab24f59488783bf58302aaf9, type: 3}
+  glovePressedCursorTexture: {fileID: 2800000, guid: be066be25ef729445af47fb19cc455f6, type: 3}
   hotSpot: {x: 5, y: 15}
