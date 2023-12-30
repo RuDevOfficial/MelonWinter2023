@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+    [SerializeField] AudioClip cloverAddedSXF;
+    [SerializeField] AudioClip conveyorSFX;
+
     private static Box instance;
 
     public Action OnBoxFilled;
@@ -42,10 +45,12 @@ public class Box : MonoBehaviour
     {
         currentCharmsCollected++;
         charm.Remove();
+        SoundManager.Get().TryPlaySound(cloverAddedSXF);
 
         if (BoxJustFilled())
         {
             filled = true;
+            SoundManager.Get().TryPlaySound(conveyorSFX);
             GameManager.Get().SwitchState(GState.NightWon);
         }
     }

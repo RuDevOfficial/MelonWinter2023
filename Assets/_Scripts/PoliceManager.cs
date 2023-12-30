@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PoliceManager : MonoBehaviour
 {
+    [SerializeField] AudioClip policeSirenSFX;
+
     [SerializeField] GameObject shutterButton;
     [SerializeField] Animator ligthAnimator;
     PoliceManager instance;
@@ -57,6 +59,7 @@ public class PoliceManager : MonoBehaviour
                 ligthAnimator.SetTrigger("Swap");
                 break;
             case TStates.Warning:
+                SoundManager.Get().TryPlaySound(policeSirenSFX);
                 warningTimer = GameManager.Get().GameData.WarningDuration;
                 ligthAnimator.SetTrigger("Swap");
                 break;
