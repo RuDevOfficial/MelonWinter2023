@@ -14,11 +14,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starterUnlockAmmount: 3
   unlockIncreaseCount: 3
+  NightsAmount: 4
+  DurationPerNightList:
+  - 60
+  - 70
+  - 80
+  - 90
+  downtimeTime: 2
+  charmsRequiredPerNight: 0300000006000000090000000c000000
+  xSize: 3
+  ySize: 2
   GrowthThreshold: 3
   OptimalGrowthStage: 4
+  OptimalGrowthStageGrowthThreshold: 1.5
+  CloverHeadSpritesList:
+  - {fileID: 21300000, guid: ebb71e44c384e1c42bd346e1f718306d, type: 3}
+  - {fileID: 21300000, guid: be5d2105d14d5af4bb085f3fcdd7dc66, type: 3}
+  - {fileID: 21300000, guid: 9948c430efdf71940b345312185022fb, type: 3}
+  - {fileID: 21300000, guid: 75f3a6c899d952a4d917904a44dc5bb3, type: 3}
+  - {fileID: 21300000, guid: 4dc640016905a414da4cc46a438fb164, type: 3}
+  - {fileID: 21300000, guid: f5146f1cdf7a3be47911f3ed110b4bbb, type: 3}
+  cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
+  seed: {fileID: 8439951934560786100, guid: 328222398bf5977479d4f661282ee10c, type: 3}
+  cloverHeadDieTime: 6
   PickUpRadius: 1
-  unlockedColor: {r: 0.6862745, g: 0.3254902, b: 0.050980397, a: 1}
-  lockedColor: {r: 0.3773585, g: 0.16305615, b: 0, a: 0.8235294}
-  PotDetectionRadius: 1
+  lockedSprite: {fileID: 1446735398, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
+  PotDetectionRadius: 1.5
   MinGrowthRate: 0.8001
   MaxGrowthRate: 1.2001
+  ShutterCloseTime: 2
+  ShutterUITransitionTime: 1
+  WarningDuration: 3
+  SpawnTimesPerNightList: 00000000010000000200000002000000
+  MinSpawnTimeOffset: 15
+  debugMode: 0
+  debugTimerMultiplier: 18

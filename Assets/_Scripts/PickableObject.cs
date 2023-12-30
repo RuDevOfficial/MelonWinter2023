@@ -6,33 +6,27 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class PickableObject : MonoBehaviour
 {
-    Rigidbody2D rb;
-    bool isPickedUp = false;
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-    private void Start()
-    {
-        GameManager.Get().AddPickable(this);
-    }
+    protected bool isPickedUp = false;
+    public bool CanBePicked = true;
 
-    public void Picked()
+    private void Start() { GameManager.Get().AddPickable(this); }
+
+    public virtual void Picked()
     {
         isPickedUp = true;
-        rb.simulated = false;
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 
     public virtual void Dropped()
     {
         isPickedUp = false;
-        rb.simulated = true;
-        rb.velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().simulated = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void Update()
     {
-        if (isPickedUp)
+        if (isPickedUp == true)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = mousePos;

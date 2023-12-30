@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
+    [SerializeField] AudioClip plantSFX;
+    [SerializeField] AudioClip cutSFX;
+
+    Sprite unlockedSprite;
     SpriteRenderer spriteRenderer;
 
-    [SerializeField] float minGrowthRate;
-    [SerializeField] float maxGrowthRate;
+    float minGrowthRate;
+    float maxGrowthRate;
     float growthRate;
-    Clover clover;
+    CloverPlant clover;
 
-    bool unlocked = true;
+    bool unlocked = false;
     bool empty = true;
 
     private void Awake()
     {
-        clover = GetComponentInChildren<Clover>();
+        clover = GetComponentInChildren<CloverPlant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        unlockedSprite = spriteRenderer.sprite;
     }
 
     private void Start()
@@ -42,6 +47,7 @@ public class Pot : MonoBehaviour
         if (CanPlant())
         {
             Plant();
+            SoundManager.Get().TryPlaySound(plantSFX);
             success = true;
         }
         else
@@ -55,13 +61,13 @@ public class Pot : MonoBehaviour
         if (CanHarvest())
         {
             Harvest();
+            SoundManager.Get().TryPlaySound(cutSFX);
         }
     }
 
     private void Harvest()
     {
         empty = true;
-        Debug.Log("Harvest!");
         clover.Cut();
     }
 
@@ -72,7 +78,6 @@ public class Pot : MonoBehaviour
 
     private void Plant()
     {
-        Debug.Log("BeginGrow!");
         empty = false;
         ChangeGrowthRate();
         clover.BeginGrow(growthRate);
@@ -91,10 +96,15 @@ public class Pot : MonoBehaviour
         }
     }
 
-    public void Lock(bool doLock)
-    { 
-        unlocked = !doLock;
-        if (doLock) { spriteRenderer.color = GameManager.Get().GameData.lockedColor; }
-        else { spriteRenderer.color = GameManager.Get().GameData.unlockedColor; }
+    public void Unlock()
+    {
+        unlocked = true;
+        spriteRenderer.sprite = unlockedSprite;
+    }
+
+    public void Lock()
+    {
+        unlocked = false;
+        spriteRenderer.sprite = GameManager.Get().GameData.lockedSprite;
     }
 }
