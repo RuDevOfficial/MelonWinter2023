@@ -21,12 +21,12 @@ MonoBehaviour:
   - 80
   - 90
   downtimeTime: 2
-  charmsRequiredPerNight: 0300000006000000090000000c000000
+  charmsRequiredPerNight: 03000000060000000900000010000000
   xSize: 3
   ySize: 2
   GrowthThreshold: 3
   OptimalGrowthStage: 4
-  OptimalGrowthStageGrowthThreshold: 1.5
+  OptimalGrowthStageGrowthThreshold: 2.3
   CloverHeadSpritesList:
   - {fileID: 21300000, guid: ebb71e44c384e1c42bd346e1f718306d, type: 3}
   - {fileID: 21300000, guid: be5d2105d14d5af4bb085f3fcdd7dc66, type: 3}
@@ -36,12 +36,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5146f1cdf7a3be47911f3ed110b4bbb, type: 3}
   cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
   seed: {fileID: 8439951934560786100, guid: 328222398bf5977479d4f661282ee10c, type: 3}
-  cloverHeadDieTime: 6
+  cloverHeadDieTime: 5.8
   PickUpRadius: 1
   lockedSprite: {fileID: 1446735398, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
   PotDetectionRadius: 1.5
-  MinGrowthRate: 0.8001
-  MaxGrowthRate: 1.2001
+  MinGrowthRate: 0.7001
+  MaxGrowthRate: 1.3001
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
   WarningDuration: 3
