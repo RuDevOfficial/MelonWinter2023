@@ -17,11 +17,19 @@ public class ShutterUI : MonoBehaviour
 
     [SerializeField] List<Sprite> daySpriteList = new();
     [SerializeField] Image numberImage;
+    [SerializeField] Image dayImage;
+    [SerializeField] Image BustedImage;
+    [SerializeField] Image TimeOutImage;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         shutterImage.enabled = true;
+        numberImage.enabled = false;
+        dayImage.enabled = false;
+        TimeOutImage.enabled = false;
+        BustedImage.enabled = false;
+
 
         if (instance == null) { instance = this; }
         else { Destroy(this); }
@@ -40,6 +48,8 @@ public class ShutterUI : MonoBehaviour
 
         GameManager.Get().OnGameOver += CloseShutterHard;
         GameManager.Get().OnGameOver += ShowGameOverButtons;
+        GameManager.Get().OnGameOver += UpdateGameOverText;
+
     }
 
     private void OnDisable()
@@ -55,6 +65,25 @@ public class ShutterUI : MonoBehaviour
 
         GameManager.Get().OnGameOver -= CloseShutterHard;
         GameManager.Get().OnGameOver -= ShowGameOverButtons;
+        GameManager.Get().OnGameOver -= UpdateGameOverText;
+    }
+
+    private void UpdateGameOverText()
+    {
+        Debug.Log("LOST GAME UPDATE");
+        string reason = GameManager.Get().GameOverReason;
+        dayImage.enabled = false;
+        numberImage.enabled = false;
+        TimeOutImage.enabled = false;
+        BustedImage.enabled = false;
+        if (reason == "Busted")
+        {
+            BustedImage.enabled = true;
+        }
+        else
+        {
+            TimeOutImage.enabled = true;
+        }
     }
 
     private void Start()
@@ -89,11 +118,6 @@ public class ShutterUI : MonoBehaviour
         animator.Play("CloseGently");
     }
 
-    bool IsAnimationPlaying()
-    {
-        return animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-    }
-
     public void InvokeAction()
     {
         GameManager.Get().SwitchState(GState.Running);
@@ -107,6 +131,10 @@ public class ShutterUI : MonoBehaviour
 
     void UpdateNightDayDisplay()
     {
+        TimeOutImage.enabled = false;
+        BustedImage.enabled = false;
+        dayImage.enabled = true;
+        numberImage.enabled = true;
         numberImage.sprite = daySpriteList[Math.Clamp(GameManager.Get().CurrentNight, 0 , GameManager.Get().GameData.NightsAmount-1)];
     }
 

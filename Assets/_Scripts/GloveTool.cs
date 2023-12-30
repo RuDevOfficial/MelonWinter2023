@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor.EditorTools;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GloveTool: Tool
 {

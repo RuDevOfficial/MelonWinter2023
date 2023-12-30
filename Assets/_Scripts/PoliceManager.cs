@@ -147,6 +147,7 @@ public class PoliceManager : MonoBehaviour
         spawnIndex = 0;
         spawnTimesList = new();
         active = true;
+
         int spawnTimesNeeded = gameData.SpawnTimesPerNightList[GameManager.Get().CurrentNight];
         if (spawnTimesNeeded == 0)
         {
@@ -179,7 +180,7 @@ public class PoliceManager : MonoBehaviour
     }
     void ActivateButton() 
     {
-        shutterButton.SetActive(true);
+        shutterButton.SetActive(GameManager.Get().CurrentNight != 0);
     }
 
 }

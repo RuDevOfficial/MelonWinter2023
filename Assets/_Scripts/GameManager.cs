@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     //Holds the current night the player is in, used to get the charm collection threshold the Box class has
     public int CurrentNight => currentNight;
+
+    public string GameOverReason = "Busted";
     int currentNight = 0;
 
     #endregion
@@ -160,6 +162,7 @@ public class GameManager : MonoBehaviour
                     OnRunning?.Invoke();
                     break;
             case GState.GameOver:
+                    SetReason();
                     OnGameOver?.Invoke();
                     break;
             case GState.NightWon:
@@ -167,6 +170,11 @@ public class GameManager : MonoBehaviour
                     OnWin?.Invoke();
                     break;
         }
+    }
+
+    private void SetReason()
+    {
+        GameOverReason = DigitalWatch.NightTimer >= gameData.DurationPerNightList[currentNight] ? "TimeOut" : "Busted";
     }
 
     private void RemoveAllHeads()
