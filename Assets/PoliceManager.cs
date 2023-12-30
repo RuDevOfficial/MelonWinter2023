@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PoliceManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI text;
     [SerializeField] GameObject shutterButton;
     [SerializeField] Animator ligthAnimator;
     PoliceManager instance;
