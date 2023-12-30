@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72306e367cbe9264f85997c2d930c845
+guid: 5c7b007e0dad6564bb6d25e2b371845d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,64 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: quit-sheet_0
+      name: retry-sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 17
+        y: 13
         width: 128
-        height: 76
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e8900e5bac27994ea0963a28b4957ba
-      internalID: 494457409
+      spriteID: 80bfcdf9828fbb94daf7671d0dcef74f
+      internalID: -1094493095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quit-sheet_1
+      name: retry-sheet_1
       rect:
         serializedVersion: 2
         x: 128
-        y: 17
+        y: 13
         width: 128
-        height: 76
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3b3bd378caeb2749bfa70b7d4d8a0fb
-      internalID: -2056001647
+      spriteID: 24b247b081cabe446be67e817e717495
+      internalID: 727832859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: quit-sheet_2
+      name: retry-sheet_2
       rect:
         serializedVersion: 2
         x: 256
-        y: 17
+        y: 13
         width: 128
-        height: 76
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b274b11f8f1b5a042ad06e795e57378e
-      internalID: -760949645
+      spriteID: 7f56d733abbe8fc4eba16526174e674e
+      internalID: 1266190614
       vertices: []
       indices: 
       edges: []
@@ -196,9 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      quit-sheet_0: 494457409
-      quit-sheet_1: -2056001647
-      quit-sheet_2: -760949645
+      retry-sheet_0: -1094493095
+      retry-sheet_1: 727832859
+      retry-sheet_2: 1266190614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
