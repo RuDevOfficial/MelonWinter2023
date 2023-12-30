@@ -43,12 +43,10 @@ public class BrokenLight : MonoBehaviour
     {
         if (Time.time - lastMalfunctionTime >= nextMalfunctionInterval)
         {
-            Debug.Log("TREMBLING");
             float duration = Random.Range(minMalfuctionDuration, maxMalfuctionDuration);
             StartCoroutine(DoTremblingEffect(duration));
             nextMalfunctionInterval = Random.Range(minMalfunctionInterval, maxMalfunctionInterval);
         }
-        Debug.Log(nextMalfunctionInterval);
     }
 
     private IEnumerator DoTremblingEffect(float duration)

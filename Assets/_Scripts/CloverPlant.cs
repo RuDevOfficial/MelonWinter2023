@@ -106,11 +106,11 @@ public class CloverPlant : MonoBehaviour
         CloverHead newCloverHead =
             Instantiate(
                 GameManager.Get().GameData.cloverHead,
-                this.transform.position,
+                (this.transform.position + Vector3.up * this.spriteRenderer.bounds.size.y*0.5f),
                 this.transform.rotation
                 ).GetComponent<CloverHead>();
 
-        newCloverHead.Init(growStage);
+        newCloverHead.Init(growStage, spriteRenderer.flipX);
         GameManager.Get().AddCloverHead(newCloverHead);
     }
 }

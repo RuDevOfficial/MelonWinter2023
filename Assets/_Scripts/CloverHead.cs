@@ -11,10 +11,10 @@ public class CloverHead : PickableObject
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public void Init(int stage)
+    public void Init(int stage, bool flipX)
     {
         spriteRenderer.sprite = GameManager.Get().GameData.CloverHeadSpritesList[stage];
-        
+        spriteRenderer.flipX = flipX;
         optimal = stage == GameManager.Get().GameData.OptimalGrowthStage;
         CanBePicked = optimal;
         
