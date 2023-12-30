@@ -12,9 +12,10 @@ public class Box : MonoBehaviour
     bool filled = false;
 
     //cambiar esto por sprite bounding box
-    float xSize = 1.5f;
-    float ySize = 2.0f;
-    float yOffset = 0.5f;
+    float yOffset = 0.9f;
+
+    Bounds bounds;
+    [SerializeField] SpriteRenderer sprRendBox;
 
     private void OnEnable() { GameManager.Get().OnRunning += ResetBox; }
 
@@ -27,7 +28,11 @@ public class Box : MonoBehaviour
         DependencyInjector.AddDependency<Box>(this);
     }
 
-    
+    private void Start()
+    {
+        bounds = sprRendBox.sprite.bounds;
+    }
+
     private void Update()
     {
         if (CharmCollided(out CloverHead charm)) { AddCharmToBox(charm); }
@@ -60,10 +65,10 @@ public class Box : MonoBehaviour
 
         foreach (CloverHead charm in GameManager.Get().CharmList)
         {
-            if (charm.transform.position.x > this.transform.position.x - xSize / 2
-                && charm.transform.position.x < this.transform.position.x + xSize / 2
-                && charm.transform.position.y > this.transform.position.y - yOffset - ySize / 2
-                && charm.transform.position.y < this.transform.position.y - yOffset + ySize / 2)
+            if (charm.transform.position.x > this.transform.position.x - bounds.extents.x
+                && charm.transform.position.x < this.transform.position.x + bounds.extents.x
+                && charm.transform.position.y > this.transform.position.y - yOffset - bounds.extents.y 
+                && charm.transform.position.y < this.transform.position.y - yOffset + bounds.extents.y)
             {
                 chosenCharm = charm;
                 return true;
@@ -71,15 +76,6 @@ public class Box : MonoBehaviour
         }
 
         return false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (Application.isPlaying)
-        {
-            Gizmos.color = Color.black;
-            Gizmos.DrawWireCube((Vector2)transform.position - Vector2.up * yOffset, new Vector2(xSize, ySize));
-        }
     }
 
     private void ResetBox()

@@ -44,7 +44,7 @@ MonoBehaviour:
   ShutterCloseTime: 2
   ShutterUITransitionTime: 1
   WarningDuration: 3
-  SpawnTimesPerNightList: 01000000010000000200000002000000
+  SpawnTimesPerNightList: 00000000010000000200000002000000
   MinSpawnTimeOffset: 15
   debugMode: 0
-  debugTimerMultiplier: 10
+  debugTimerMultiplier: 18
