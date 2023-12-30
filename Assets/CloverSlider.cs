@@ -32,7 +32,6 @@ public class CloverSlider : MonoBehaviour
         float maxClovers = GameManager.Get().GameData.charmsRequiredPerNight[GameManager.Get().CurrentNight];
         float currentClovers = DependencyInjector.GetDependency<Box>().CurrentCloverHeadsCollected;
 
-        Debug.Log(currentClovers + " " + maxClovers);
         float fract = Mathf.Clamp01(currentClovers / maxClovers);
         Debug.Log(fract);
         slider.value = fract;
