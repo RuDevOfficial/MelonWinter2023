@@ -6,8 +6,12 @@ public class Skipper : MonoBehaviour
 {
     [SerializeField] Animation animation;
     [SerializeField] List<GameObject> objects;
+    [SerializeField] AudioClip pageSFX;
     int i = 0;
     bool triggered = false;
+
+
+    bool canPlaySound = true;
     private void Start()
     {
         HideAllObjects();
@@ -20,6 +24,8 @@ public class Skipper : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
+            if (canPlaySound)
+                SoundManager.Get().TryPlaySound(pageSFX);
             i += 1;
 
             if (i > objects.Count - 1)
@@ -37,6 +43,8 @@ public class Skipper : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.A))
         {
+            if (canPlaySound)
+                SoundManager.Get().TryPlaySound(pageSFX);
             i -= 1;
             if(i < 0) { i = 1; }
 
@@ -58,6 +66,7 @@ public class Skipper : MonoBehaviour
     private void StartFade()
     {
         animation.Play();
+        canPlaySound = false;
     }
 
     private void HideAllObjects()
