@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
+    [SerializeField] AudioClip plantSFX;
+    [SerializeField] AudioClip cutSFX;
+
     Sprite unlockedSprite;
     SpriteRenderer spriteRenderer;
 
@@ -18,7 +21,6 @@ public class Pot : MonoBehaviour
         clover = GetComponentInChildren<CloverPlant>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         unlockedSprite = spriteRenderer.sprite;
-
     }
 
     private void Start()
@@ -45,6 +47,7 @@ public class Pot : MonoBehaviour
         if (CanPlant())
         {
             Plant();
+            SoundManager.Get().TryPlaySound(plantSFX);
             success = true;
         }
         else
@@ -58,6 +61,7 @@ public class Pot : MonoBehaviour
         if (CanHarvest())
         {
             Harvest();
+            SoundManager.Get().TryPlaySound(cutSFX);
         }
     }
 

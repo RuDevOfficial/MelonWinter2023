@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f20b4f6f5a8224da9cc16eeade57da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantSFX: {fileID: 8300000, guid: 09e0e7512c8d4b24c8f777d825c2964d, type: 3}
+  cutSFX: {fileID: 8300000, guid: a46d45d3449156e4abca0bf6c69da03e, type: 3}
 --- !u!1001 &603343352290624627
 PrefabInstance:
   m_ObjectHideFlags: 0

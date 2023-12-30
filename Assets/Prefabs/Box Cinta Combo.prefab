@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: sprRendBox
       value: 
       objectReference: {fileID: 5182634432406226628}
+    - target: {fileID: 101607216877354416, guid: e10bfd3cb5e9b24408afeab917953ab2, type: 3}
+      propertyPath: cloverAddedSXF
+      value: 
+      objectReference: {fileID: 8300000, guid: a400e84b9c349bc4bae90a9a0cb400a3, type: 3}
     - target: {fileID: 358211222263419092, guid: e10bfd3cb5e9b24408afeab917953ab2, type: 3}
       propertyPath: m_IsActive
       value: 0
