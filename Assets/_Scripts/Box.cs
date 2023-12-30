@@ -5,6 +5,8 @@ public class Box : MonoBehaviour
 {
     [SerializeField] AudioClip cloverAddedSXF;
     [SerializeField] AudioClip conveyorSFX;
+    Animator animator;
+    ParticleSystem particleSystem;
 
     private static Box instance;
 
@@ -29,6 +31,8 @@ public class Box : MonoBehaviour
         if (instance == null) { instance = this; }
         else { Destroy(this); }
         DependencyInjector.AddDependency<Box>(this);
+        animator = GetComponentInParent<Animator>();
+        particleSystem = GetComponent<ParticleSystem>();
     }
 
     private void Start()
@@ -38,7 +42,12 @@ public class Box : MonoBehaviour
 
     private void Update()
     {
-        if (CharmCollided(out CloverHead charm)) { AddCharmToBox(charm); }
+        if (CharmCollided(out CloverHead charm) && CanAcceptCharms()) { AddCharmToBox(charm); }
+    }
+
+    private bool CanAcceptCharms()
+    {
+        return GameManager.Get().CurrentState == GState.Running;
     }
 
     private void AddCharmToBox(CloverHead charm)
@@ -52,6 +61,11 @@ public class Box : MonoBehaviour
             filled = true;
             SoundManager.Get().TryPlaySound(conveyorSFX);
             GameManager.Get().SwitchState(GState.NightWon);
+        }
+        else
+        {
+            animator.Play("Fill");
+            particleSystem.Play();
         }
     }
 
@@ -72,7 +86,7 @@ public class Box : MonoBehaviour
         {
             if (charm.transform.position.x > this.transform.position.x - bounds.extents.x
                 && charm.transform.position.x < this.transform.position.x + bounds.extents.x
-                && charm.transform.position.y > this.transform.position.y - yOffset - bounds.extents.y 
+                && charm.transform.position.y > this.transform.position.y - yOffset - bounds.extents.y
                 && charm.transform.position.y < this.transform.position.y - yOffset + bounds.extents.y)
             {
                 chosenCharm = charm;
