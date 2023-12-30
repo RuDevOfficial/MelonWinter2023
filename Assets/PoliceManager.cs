@@ -39,7 +39,7 @@ public class PoliceManager : MonoBehaviour
 
     private void Start()
     {
-        shutterButton.SetActive(false);
+        //shutterButton.SetActive(false);
     }
 
     private void ChangeState(TStates newState)
