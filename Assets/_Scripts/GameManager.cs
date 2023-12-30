@@ -89,6 +89,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    SwitchState(GState.NightWon);
+        //    return;
+        //}
         //Handles all update related events by state, currently only the state of NightWon
         //uses it
         HandleGameLoop();
@@ -142,6 +147,8 @@ public class GameManager : MonoBehaviour
     //Self explanatory, calls each action based by state
     private void OnEnterState(GState newState)
     {
+       
+
         switch (newState)
         {
             case GState.Pending:
@@ -177,6 +184,11 @@ public class GameManager : MonoBehaviour
     private void MoveNextNight()
     {
         currentNight++;
+        if (currentNight > 3)
+        {
+            ReturnToMenu();
+            return;
+        }
         Mathf.Clamp(currentNight, 0, GameData.NightsAmount - 1);
     }
     

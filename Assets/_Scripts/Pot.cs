@@ -5,6 +5,7 @@ public class Pot : MonoBehaviour
     [SerializeField] AudioClip plantSFX;
     [SerializeField] AudioClip cutSFX;
 
+    [SerializeField] ParticleSystem particles;
     Sprite unlockedSprite;
     SpriteRenderer spriteRenderer;
 
@@ -81,6 +82,7 @@ public class Pot : MonoBehaviour
         empty = false;
         ChangeGrowthRate();
         clover.BeginGrow(growthRate);
+        particles.Play();
     }
 
     bool CanPlant()

@@ -99,6 +99,8 @@ public class CloverPlant : MonoBehaviour
         growing = false;
         magicParticles.Stop();
         SetRenderClover(false);
+        animator.SetBool("HalfWay", false);
+        growthTimer = growthThresholdTime;
     }
 
     private void SpawnCloverHead()

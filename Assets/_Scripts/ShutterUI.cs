@@ -107,7 +107,7 @@ public class ShutterUI : MonoBehaviour
 
     void UpdateNightDayDisplay()
     {
-        numberImage.sprite = daySpriteList[Math.Clamp(GameManager.Get().CurrentNight, 0 , GameManager.Get().GameData.NightsAmount)];
+        numberImage.sprite = daySpriteList[Math.Clamp(GameManager.Get().CurrentNight, 0 , GameManager.Get().GameData.NightsAmount-1)];
     }
 
     void ShowGameOverButtons()
