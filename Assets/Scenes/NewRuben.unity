@@ -1719,6 +1719,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1618706378}
+    - target: {fileID: 1009837215762451762, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 159.4324
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009837215762451762, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 54.2957
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009837215762451762, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3211485074051523236, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1803,6 +1815,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3983065182202928135, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.8809
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983065182202928135, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -90.2391
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983065182202928135, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983065182202928135, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7781605644109805533, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1811,6 +1839,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1618706378}
+    - target: {fileID: 8842948656515183989, guid: 25309d539d64ee94597c17f90e1c614c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

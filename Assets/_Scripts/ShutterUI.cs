@@ -15,6 +15,9 @@ public class ShutterUI : MonoBehaviour
     [SerializeField] CanvasGroup gameOverButtonGroup;
     [SerializeField] Image shutterImage;
 
+    [SerializeField] List<Sprite> daySpriteList = new();
+    [SerializeField] Image numberImage;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -96,6 +99,7 @@ public class ShutterUI : MonoBehaviour
         GameManager.Get().SwitchState(GState.Running);
     }
 
+    //Not used anymore
     public void UpdateTextDisplay(string newString)
     {
         textUI.text = newString;
@@ -103,7 +107,7 @@ public class ShutterUI : MonoBehaviour
 
     void UpdateNightDayDisplay()
     {
-        textUI.text = "Day " + (GameManager.Get().CurrentNight + 1).ToString();
+        numberImage.sprite = daySpriteList[Math.Clamp(GameManager.Get().CurrentNight, 0 , GameManager.Get().GameData.NightsAmount)];
     }
 
     void ShowGameOverButtons()
