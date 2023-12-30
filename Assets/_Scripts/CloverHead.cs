@@ -9,6 +9,8 @@ public class CloverHead : PickableObject
     SpriteRenderer spriteRenderer;
     Animator animator;
     bool optimal = false;
+
+    bool leftPot;
     private void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -35,12 +37,20 @@ public class CloverHead : PickableObject
     private IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(GameManager.Get().GameData.cloverHeadDieTime);
-        Dropped();
-        animator.SetTrigger("Fade");
-        spriteRenderer.sprite = GameManager.Get().GameData.CloverHeadSpritesList[5];
-        CanBePicked = false;
-    }
 
+        if (!leftPot)
+        {
+            Dropped();
+            animator.SetTrigger("Fade");
+            spriteRenderer.sprite = GameManager.Get().GameData.CloverHeadSpritesList[5];
+            CanBePicked = false;
+        }
+    }
+    public override void Picked()
+    {
+        base.Picked();
+        leftPot = true;
+    }
     public void Remove() 
     {
         Dropped();

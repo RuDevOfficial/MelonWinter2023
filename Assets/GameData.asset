@@ -36,7 +36,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5146f1cdf7a3be47911f3ed110b4bbb, type: 3}
   cloverHead: {fileID: 4395599043068288197, guid: a5457dc07a28c7a48b3671030ce09014, type: 3}
   seed: {fileID: 8439951934560786100, guid: 328222398bf5977479d4f661282ee10c, type: 3}
-  cloverHeadDieTime: 3
+  cloverHeadDieTime: 6
   PickUpRadius: 1
   lockedSprite: {fileID: 1446735398, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
   PotDetectionRadius: 1.5

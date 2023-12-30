@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class PickableObject : MonoBehaviour
 {
-    bool isPickedUp = false;
+    protected bool isPickedUp = false;
     public bool CanBePicked = true;
 
     private void Start() { GameManager.Get().AddPickable(this); }
