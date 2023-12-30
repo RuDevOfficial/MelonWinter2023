@@ -6,7 +6,12 @@ using UnityEngine;
 public class ShowCursor : MonoBehaviour
 {
     [SerializeField] Texture2D scissorsCursorTexture;
+    [SerializeField] Texture2D scissorsPressedCursorTexture;
     [SerializeField] Texture2D gloveCursorTexture;
+    [SerializeField] Texture2D glovePressedCursorTexture;
+
+    [SerializeField] Vector2 hotSpot;
+    ToolsManager.ToolType currentType = ToolsManager.ToolType.Glove;
 
     private void OnEnable() { ToolsManager.OnToolsSwapped += OnToolsSwapped; }
 
@@ -14,18 +19,55 @@ public class ShowCursor : MonoBehaviour
 
     void Start()
     {
-        Vector2 cursorHotSpot = new Vector2(gloveCursorTexture.width / 2, gloveCursorTexture.height / 2);
-        Cursor.SetCursor(gloveCursorTexture, cursorHotSpot, CursorMode.ForceSoftware);
+        Cursor.SetCursor(gloveCursorTexture, hotSpot, CursorMode.ForceSoftware);
     }
 
     private void OnToolsSwapped(ToolsManager.ToolType type)
     {
-        Texture2D texture;
+        currentType = type;
+    }
 
-        if (type == ToolsManager.ToolType.Scissors) texture = scissorsCursorTexture;
-        else texture = gloveCursorTexture;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            SetTexture(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            SetTexture(false);
+        }
+    }
 
-        Vector2 cursorHotSpot = new Vector2(texture.width / 2, texture.height / 2);
-        Cursor.SetCursor(texture, cursorHotSpot, CursorMode.ForceSoftware);
+    private void SetTexture(bool isPressed)
+    {
+        Texture2D texture = gloveCursorTexture;
+
+        if (isPressed)
+        {
+            if (currentType == ToolsManager.ToolType.Glove)
+            {
+                texture = glovePressedCursorTexture;
+            }
+            else
+            {
+                texture = scissorsPressedCursorTexture;
+
+            }
+        }
+        else
+        {
+
+            if (currentType == ToolsManager.ToolType.Glove)
+            {
+                texture = gloveCursorTexture;
+            }
+            else
+            {
+                texture = scissorsCursorTexture;
+            }
+        }
+        
+        Cursor.SetCursor(texture, hotSpot, CursorMode.ForceSoftware);
     }
 }
