@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Skipper : MonoBehaviour
 {
-    Animator animator;
+    [SerializeField] Animation animation;
     [SerializeField] List<GameObject> objects;
     int i = 0;
     bool triggered = false;
-
-    private void Awake()
-    {
-        animator = gameObject.GetComponent<Animator>();
-    }
-
     private void Start()
     {
         HideAllObjects();
@@ -24,7 +18,7 @@ public class Skipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             i += 1;
 
@@ -41,11 +35,29 @@ public class Skipper : MonoBehaviour
                 ShowObject(i);
             }
         }
+        else if(Input.GetKeyDown(KeyCode.A))
+        {
+            i -= 1;
+            if(i < 0) { i = 1; }
+
+            if (i > objects.Count - 1)
+            {
+                if (triggered == false)
+                {
+                    StartFade();
+                    triggered = true;
+                }
+            }
+            else
+            {
+                ShowObject(i);
+            }
+        }
     }
 
     private void StartFade()
     {
-        animator.SetTrigger("Fade");
+        animation.Play();
     }
 
     private void HideAllObjects()
@@ -57,6 +69,7 @@ public class Skipper : MonoBehaviour
     }
     void ShowObject(int i)
     {
+        HideAllObjects();
         objects[i].SetActive(true);
     }
 }
