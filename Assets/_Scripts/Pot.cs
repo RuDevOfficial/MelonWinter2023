@@ -35,14 +35,6 @@ public class Pot : MonoBehaviour
         growthRate = Random.Range(minGrowthRate, maxGrowthRate);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            TryHarvest();
-        }
-    }
-
     public void TryPlant(out bool success)
     {
         if (CanPlant())
