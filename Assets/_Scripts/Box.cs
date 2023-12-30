@@ -7,6 +7,7 @@ public class Box : MonoBehaviour
 
     public Action OnBoxFilled;
 
+    public int CurrentCloverHeadsCollected => currentCharmsCollected;
     private int currentCharmsCollected = 0;
     bool filled = false;
 
@@ -23,8 +24,10 @@ public class Box : MonoBehaviour
     {
         if (instance == null) { instance = this; }
         else { Destroy(this); }
+        DependencyInjector.AddDependency<Box>(this);
     }
 
+    
     private void Update()
     {
         if (CharmCollided(out CloverHead charm)) { AddCharmToBox(charm); }

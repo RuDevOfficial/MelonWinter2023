@@ -42,7 +42,7 @@ public class PotManager : MonoBehaviour
         foreach (Pot pot in PotManager.Get().PotList)
         {
             Vector2 position = objectPosition;
-            Vector2 potPos = pot.transform.position;
+            Vector2 potPos = (Vector2)pot.transform.position;
 
             float distance = Vector2.Distance(position, potPos);
             if (distance <= minDistanceRecord)

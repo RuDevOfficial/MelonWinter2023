@@ -42,7 +42,8 @@ public class ShowCursor : MonoBehaviour
     private void SetTexture(bool isPressed)
     {
         Texture2D texture = gloveCursorTexture;
-
+        Vector2 pixelHotSpot = hotSpot * texture.width;
+        
         if (isPressed)
         {
             if (currentType == ToolsManager.ToolType.Glove)

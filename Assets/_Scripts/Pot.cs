@@ -63,7 +63,6 @@ public class Pot : MonoBehaviour
 
     private void Harvest()
     {
-        Debug.Log("I harvested");
         empty = true;
         clover.Cut();
     }

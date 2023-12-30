@@ -38,7 +38,7 @@ MonoBehaviour:
   seed: {fileID: 8439951934560786100, guid: 328222398bf5977479d4f661282ee10c, type: 3}
   PickUpRadius: 1
   lockedSprite: {fileID: 1446735398, guid: 2c7ebde246d2f284f85732288df20871, type: 3}
-  PotDetectionRadius: 1
+  PotDetectionRadius: 1.5
   MinGrowthRate: 0.8001
   MaxGrowthRate: 1.2001
   ShutterCloseTime: 2
