@@ -20,9 +20,9 @@ public class PotManager : MonoBehaviour
         potList = GetComponentsInChildren<Pot>().ToList();
     }
 
-    public static PotManager Get() { return instance; }
 
     private void Start() { LockAll(); }
+    public static PotManager Get() { return instance; }
 
     void LockAll() { foreach (Pot pot in potList) { pot.Lock(); } }
 
@@ -55,5 +55,13 @@ public class PotManager : MonoBehaviour
         if (closerPot != null) { return true; }
 
         return false;
+    }
+
+    public void HarvestScene()
+    {
+        for (int i = 0; i < potList.Count; i++)
+        {
+            potList[i].TryHarvest();
+        }
     }
 }

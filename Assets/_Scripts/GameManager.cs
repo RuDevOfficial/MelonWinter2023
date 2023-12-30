@@ -146,6 +146,8 @@ public class GameManager : MonoBehaviour
         {
             case GState.Pending:
                     OnPending?.Invoke();
+                    PotManager.Get().HarvestScene();
+                    RemoveAllHeads();
                     break;
             case GState.Running:
                     OnRunning?.Invoke();
@@ -158,6 +160,16 @@ public class GameManager : MonoBehaviour
                     OnWin?.Invoke();
                     break;
         }
+    }
+
+    private void RemoveAllHeads()
+    {
+        for (int i = cloverHeadList.Count - 1; i >= 0; i--)
+        {
+            Destroy(cloverHeadList[i].gameObject);
+        }
+
+        cloverHeadList = new();
     }
 
     //When this function is called we add 1 to the currentNight value

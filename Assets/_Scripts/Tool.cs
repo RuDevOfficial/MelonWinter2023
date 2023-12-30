@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Tool : MonoBehaviour
 {
     public ToolsManager.ToolType type;
+    [SerializeField] AudioClip actionSoundSFX;
 
     private void Update()
     {
@@ -26,6 +27,7 @@ public abstract class Tool : MonoBehaviour
     {
         if (CanDoPressAction())
         {
+            SoundManager.Get().TryPlaySound(actionSoundSFX, loop: false);
             DoPressAction();
         }
     }

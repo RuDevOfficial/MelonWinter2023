@@ -6,6 +6,9 @@ public class Shutter : MonoBehaviour
     Animator animator;
     [SerializeField] AnimationClip closeClip;
 
+    [SerializeField] AudioClip buttonPress;
+    [SerializeField] AudioClip closeShutterSFX, openShutterSFX;
+
     public ShutterState State => currentState;
     ShutterState currentState = ShutterState.Waiting;
 
@@ -31,6 +34,7 @@ public class Shutter : MonoBehaviour
             { 
                 timer = 0.0f;
                 currentState = ShutterState.Opening;
+                SoundManager.Get().TryPlaySound(openShutterSFX, loop: false);
                 animator.Play("Open");
             }
         }
@@ -40,12 +44,14 @@ public class Shutter : MonoBehaviour
     {
         if (CanClose())
         {
+            SoundManager.Get().TryPlaySound(buttonPress, loop: false);
             BeginClose();
         }
     }
 
     private void BeginClose()
     {
+        SoundManager.Get().TryPlaySound(closeShutterSFX, loop: false);
         animator.Play("Close");
         currentState = ShutterState.Closing;
     }

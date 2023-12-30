@@ -14,10 +14,14 @@ public class ToolsManager : MonoBehaviour
 
     public static Action<ToolType> OnToolsSwapped;
 
+    [SerializeField] AudioClip switchSFX;
+
     private void Awake()
     {
         gloveTool = GetComponentInChildren<GloveTool>();
         scissorsTool = GetComponentInChildren<ScissorsTool>();
+
+        DependencyInjector.AddDependency<ToolsManager>(this);
     }
     private void Start()
     {
@@ -42,6 +46,6 @@ public class ToolsManager : MonoBehaviour
         }
 
         OnToolsSwapped?.Invoke(currentTool.type);
-        
+        SoundManager.Get().TryPlaySound(switchSFX, false);
     }
 }
