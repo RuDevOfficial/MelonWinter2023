@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,427 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cinta-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 646
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183fae6ae8873f54a9e4aa523310a0e2
+      internalID: -1434727382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 612
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7659317f7a8cb24c8f4c1e493e3d596
+      internalID: -1478067176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 578
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1f89bd6dc295d4ab728da65cb7aa12
+      internalID: -2038522223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 718d2651a0b02c241ba9ca659b448ea2
+      internalID: 291284693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 510
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfddd6aa9d288a44926f003ef6ffb35
+      internalID: -879748867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 476
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75b98c3cd95c114aa24371ee45d908a
+      internalID: -1636259658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 442
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1004080cded994293f1caa91419b45
+      internalID: -1132394290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406d4037833cafa4eb5c7dc4e04165dd
+      internalID: -750270284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826b3d0dde82b9146bf9c111e6314da0
+      internalID: 2030620997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 340
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42565e33abb1bee47b2c0c7b4deae8d7
+      internalID: -1942043399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 306
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c25c79e862be6344b56140e31d55202
+      internalID: -371371339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 272
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00672e2d2de7c264abcaca6e130d805e
+      internalID: -918733343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 238
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2072ab6cb2fa95b439f9248172dd77fe
+      internalID: -1780520783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b706eaf403ad9544b06ba478eeb8b30
+      internalID: -951416395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7344f3b3e54c6844d8bbd139cf40dfce
+      internalID: -565481072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75292f98756ce4143b5adaccc516f2b6
+      internalID: 1935652079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea3a9aaa6c30724cb461a863a3641ba
+      internalID: 1649784031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55339d9bfe3276439a42802b65b15cc
+      internalID: -690495515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 34
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d74e895da6c19f438c7a7298a8edd1f
+      internalID: -83602224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinta-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 191
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148aeb9a89a704d49900be25babfbb94
+      internalID: -1435998461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +552,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cinta-Sheet_0: -1434727382
+      cinta-Sheet_1: -1478067176
+      cinta-Sheet_10: -371371339
+      cinta-Sheet_11: -918733343
+      cinta-Sheet_12: -1780520783
+      cinta-Sheet_13: -951416395
+      cinta-Sheet_14: -565481072
+      cinta-Sheet_15: 1935652079
+      cinta-Sheet_16: 1649784031
+      cinta-Sheet_17: -690495515
+      cinta-Sheet_18: -83602224
+      cinta-Sheet_19: -1435998461
+      cinta-Sheet_2: -2038522223
+      cinta-Sheet_3: 291284693
+      cinta-Sheet_4: -879748867
+      cinta-Sheet_5: -1636259658
+      cinta-Sheet_6: -1132394290
+      cinta-Sheet_7: -750270284
+      cinta-Sheet_8: 2030620997
+      cinta-Sheet_9: -1942043399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
