@@ -24,6 +24,9 @@ public class GameData: ScriptableObject
     public List<Sprite> CloverHeadSpritesList;
     public GameObject cloverHead;
     public GameObject seed;
+    [Space]
+    public float cloverHeadDieTime;
+    
 
     [Header("Drag Data")]
     public float PickUpRadius;

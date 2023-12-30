@@ -33,7 +33,6 @@ public class CloverSlider : MonoBehaviour
         float currentClovers = DependencyInjector.GetDependency<Box>().CurrentCloverHeadsCollected;
 
         float fract = Mathf.Clamp01(currentClovers / maxClovers);
-        Debug.Log(fract);
         slider.value = fract;
     }
     private void SetMaxValue() => slider.value = 1;
