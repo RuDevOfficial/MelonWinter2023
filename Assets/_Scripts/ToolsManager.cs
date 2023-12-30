@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ToolsManager : MonoBehaviour
 {
     public enum ToolType { Scissors, Glove}
+    public Tool CurrentTool => currentTool;
     Tool currentTool;
 
     GloveTool gloveTool;

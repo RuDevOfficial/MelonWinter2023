@@ -10,6 +10,7 @@ public class Seed : PickableObject
         base.Picked();
 
         FromBag = false;
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public override void Dropped()
