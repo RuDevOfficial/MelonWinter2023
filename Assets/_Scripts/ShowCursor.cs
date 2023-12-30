@@ -53,7 +53,6 @@ public class ShowCursor : MonoBehaviour
             else
             {
                 texture = scissorsPressedCursorTexture;
-
             }
         }
         else
